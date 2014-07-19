@@ -39,12 +39,12 @@
   <span class="keyword">enum</span> <a name="boost.date_time.parse_match_result.PARSE_STATE"></a>PARSE_STATE <span class="special">{</span> PARSE_ERROR = = -1 <span class="special">}</span><span class="special">;</span>
 
   <span class="comment">// <a class="link" href="parse_match_result.html#boost.date_time.parse_match_resultconstruct-copy-destruct">construct/copy/destruct</a></span>
-  <a class="link" href="parse_match_result.html#idp36306960-bb"><span class="identifier">parse_match_result</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="parse_match_result.html#idp86882880-bb"><span class="identifier">parse_match_result</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
 
-  <span class="comment">// <a class="link" href="parse_match_result.html#idp96465968-bb">public member functions</a></span>
-  <span class="identifier">string_type</span> <a class="link" href="parse_match_result.html#idp96466528-bb"><span class="identifier">remaining</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="identifier">charT</span> <a class="link" href="parse_match_result.html#idp35265568-bb"><span class="identifier">last_char</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">bool</span> <a class="link" href="parse_match_result.html#idp35266688-bb"><span class="identifier">has_remaining</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="comment">// <a class="link" href="parse_match_result.html#idp85464704-bb">public member functions</a></span>
+  <span class="identifier">string_type</span> <a class="link" href="parse_match_result.html#idp85465264-bb"><span class="identifier">remaining</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="identifier">charT</span> <a class="link" href="parse_match_result.html#idp85466384-bb"><span class="identifier">last_char</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="keyword">bool</span> <a class="link" href="parse_match_result.html#idp86880960-bb"><span class="identifier">has_remaining</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
 
   <span class="comment">// public data members</span>
   <span class="identifier">string_type</span> <span class="identifier">cache</span><span class="special">;</span>
@@ -52,22 +52,22 @@
   <span class="keyword">short</span> <span class="identifier">current_match</span><span class="special">;</span>
 <span class="special">}</span><span class="special">;</span></pre></div>
 <div class="refsect1">
-<a name="idp206050320"></a><h2>Description</h2>
+<a name="idp176328320"></a><h2>Description</h2>
 <div class="refsect2">
-<a name="idp206050736"></a><h3>
+<a name="idp176328736"></a><h3>
 <a name="boost.date_time.parse_match_resultconstruct-copy-destruct"></a><code class="computeroutput">parse_match_result</code> 
         public
        construct/copy/destruct</h3>
-<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><pre class="literallayout"><a name="idp36306960-bb"></a><span class="identifier">parse_match_result</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre></li></ol></div>
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><pre class="literallayout"><a name="idp86882880-bb"></a><span class="identifier">parse_match_result</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre></li></ol></div>
 </div>
 <div class="refsect2">
-<a name="idp206056640"></a><h3>
-<a name="idp96465968-bb"></a><code class="computeroutput">parse_match_result</code> public member functions</h3>
+<a name="idp176334640"></a><h3>
+<a name="idp85464704-bb"></a><code class="computeroutput">parse_match_result</code> public member functions</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
-<li class="listitem"><pre class="literallayout"><span class="identifier">string_type</span> <a name="idp96466528-bb"></a><span class="identifier">remaining</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre></li>
-<li class="listitem"><pre class="literallayout"><span class="identifier">charT</span> <a name="idp35265568-bb"></a><span class="identifier">last_char</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><span class="identifier">string_type</span> <a name="idp85465264-bb"></a><span class="identifier">remaining</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><span class="identifier">charT</span> <a name="idp85466384-bb"></a><span class="identifier">last_char</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre></li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">bool</span> <a name="idp35266688-bb"></a><span class="identifier">has_remaining</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>Returns true if more characters were parsed than was necessary. <p>Should be used in conjunction with last_char() to get the remaining character. </p>
+<pre class="literallayout"><span class="keyword">bool</span> <a name="idp86880960-bb"></a><span class="identifier">has_remaining</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>Returns true if more characters were parsed than was necessary. <p>Should be used in conjunction with last_char() to get the remaining character. </p>
 </li>
 </ol></div>
 </div>

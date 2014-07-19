@@ -35,36 +35,36 @@
 <span class="keyword">class</span> <a class="link" href="interprocess_exception.html" title="Class interprocess_exception">interprocess_exception</a> <span class="special">:</span> <span class="keyword">public</span> <span class="identifier">exception</span> <span class="special">{</span>
 <span class="keyword">public</span><span class="special">:</span>
   <span class="comment">// <a class="link" href="interprocess_exception.html#boost.interprocess.interprocess_exceptionconstruct-copy-destruct">construct/copy/destruct</a></span>
-  <a class="link" href="interprocess_exception.html#idp41654176-bb"><span class="identifier">interprocess_exception</span></a><span class="special">(</span><span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span><span class="special">)</span><span class="special">;</span>
-  <a class="link" href="interprocess_exception.html#idp41655152-bb"><span class="identifier">interprocess_exception</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">error_info</span> <span class="special">&amp;</span><span class="special">,</span> <span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span> <span class="special">=</span> <span class="number">0</span><span class="special">)</span><span class="special">;</span>
-  <a class="link" href="interprocess_exception.html#idp41657104-bb"><span class="special">~</span><span class="identifier">interprocess_exception</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="interprocess_exception.html#idp62613312-bb"><span class="identifier">interprocess_exception</span></a><span class="special">(</span><span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="interprocess_exception.html#idp62614288-bb"><span class="identifier">interprocess_exception</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">error_info</span> <span class="special">&amp;</span><span class="special">,</span> <span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span> <span class="special">=</span> <span class="number">0</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="interprocess_exception.html#idp62616240-bb"><span class="special">~</span><span class="identifier">interprocess_exception</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
 
-  <span class="comment">// <a class="link" href="interprocess_exception.html#idp41649824-bb">public member functions</a></span>
-  <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span> <a class="link" href="interprocess_exception.html#idp41650384-bb"><span class="identifier">what</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="identifier">native_error_t</span> <a class="link" href="interprocess_exception.html#idp41651776-bb"><span class="identifier">get_native_error</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="identifier">error_code_t</span> <a class="link" href="interprocess_exception.html#idp41652896-bb"><span class="identifier">get_error_code</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="comment">// <a class="link" href="interprocess_exception.html#idp62608960-bb">public member functions</a></span>
+  <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span> <a class="link" href="interprocess_exception.html#idp62609520-bb"><span class="identifier">what</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="identifier">native_error_t</span> <a class="link" href="interprocess_exception.html#idp62610912-bb"><span class="identifier">get_native_error</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="identifier">error_code_t</span> <a class="link" href="interprocess_exception.html#idp62612032-bb"><span class="identifier">get_error_code</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
 <span class="special">}</span><span class="special">;</span></pre></div>
 <div class="refsect1">
-<a name="idp249518000"></a><h2>Description</h2>
+<a name="idp220098288"></a><h2>Description</h2>
 <p>This class is the base class of all exceptions thrown by boost::interprocess </p>
 <div class="refsect2">
-<a name="idp249518768"></a><h3>
+<a name="idp220099056"></a><h3>
 <a name="boost.interprocess.interprocess_exceptionconstruct-copy-destruct"></a><code class="computeroutput">interprocess_exception</code> 
         public
        construct/copy/destruct</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
-<li class="listitem"><pre class="literallayout"><a name="idp41654176-bb"></a><span class="identifier">interprocess_exception</span><span class="special">(</span><span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span> err<span class="special">)</span><span class="special">;</span></pre></li>
-<li class="listitem"><pre class="literallayout"><a name="idp41655152-bb"></a><span class="identifier">interprocess_exception</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">error_info</span> <span class="special">&amp;</span> err_info<span class="special">,</span> <span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span> str <span class="special">=</span> <span class="number">0</span><span class="special">)</span><span class="special">;</span></pre></li>
-<li class="listitem"><pre class="literallayout"><a name="idp41657104-bb"></a><span class="special">~</span><span class="identifier">interprocess_exception</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><a name="idp62613312-bb"></a><span class="identifier">interprocess_exception</span><span class="special">(</span><span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span> err<span class="special">)</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><a name="idp62614288-bb"></a><span class="identifier">interprocess_exception</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">error_info</span> <span class="special">&amp;</span> err_info<span class="special">,</span> <span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span> str <span class="special">=</span> <span class="number">0</span><span class="special">)</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><a name="idp62616240-bb"></a><span class="special">~</span><span class="identifier">interprocess_exception</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre></li>
 </ol></div>
 </div>
 <div class="refsect2">
-<a name="idp249540464"></a><h3>
-<a name="idp41649824-bb"></a><code class="computeroutput">interprocess_exception</code> public member functions</h3>
+<a name="idp220120752"></a><h3>
+<a name="idp62608960-bb"></a><code class="computeroutput">interprocess_exception</code> public member functions</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
-<li class="listitem"><pre class="literallayout"><span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span> <a name="idp41650384-bb"></a><span class="identifier">what</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre></li>
-<li class="listitem"><pre class="literallayout"><span class="identifier">native_error_t</span> <a name="idp41651776-bb"></a><span class="identifier">get_native_error</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre></li>
-<li class="listitem"><pre class="literallayout"><span class="identifier">error_code_t</span> <a name="idp41652896-bb"></a><span class="identifier">get_error_code</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span> <a name="idp62609520-bb"></a><span class="identifier">what</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><span class="identifier">native_error_t</span> <a name="idp62610912-bb"></a><span class="identifier">get_native_error</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><span class="identifier">error_code_t</span> <a name="idp62612032-bb"></a><span class="identifier">get_error_code</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre></li>
 </ol></div>
 </div>
 </div>

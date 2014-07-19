@@ -41,40 +41,40 @@
   <span class="keyword">typedef</span> <span class="identifier">MemoryAlgorithm</span>                         <a name="boost.interprocess.segment_manager_base.memory_algorithm"></a><span class="identifier">memory_algorithm</span><span class="special">;</span>         
 
   <span class="comment">// <a class="link" href="segment_manager_base.html#boost.interprocess.segment_manager_baseconstruct-copy-destruct">construct/copy/destruct</a></span>
-  <a class="link" href="segment_manager_base.html#idp43129072-bb"><span class="identifier">segment_manager_base</span></a><span class="special">(</span><span class="identifier">size_type</span><span class="special">,</span> <span class="identifier">size_type</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="segment_manager_base.html#idp64088208-bb"><span class="identifier">segment_manager_base</span></a><span class="special">(</span><span class="identifier">size_type</span><span class="special">,</span> <span class="identifier">size_type</span><span class="special">)</span><span class="special">;</span>
 
-  <span class="comment">// <a class="link" href="segment_manager_base.html#idp43101408-bb">public member functions</a></span>
-  <span class="identifier">size_type</span> <a class="link" href="segment_manager_base.html#idp43101968-bb"><span class="identifier">get_size</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="identifier">size_type</span> <a class="link" href="segment_manager_base.html#idp43103520-bb"><span class="identifier">get_free_memory</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">void</span> <span class="special">*</span> <a class="link" href="segment_manager_base.html#idp43105088-bb"><span class="identifier">allocate</span></a><span class="special">(</span><span class="identifier">size_type</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">nothrow_t</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">void</span> <span class="special">*</span> <a class="link" href="segment_manager_base.html#idp43107808-bb"><span class="identifier">allocate</span></a><span class="special">(</span><span class="identifier">size_type</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">void</span> <span class="special">*</span> <a class="link" href="segment_manager_base.html#idp43110528-bb"><span class="identifier">allocate_aligned</span></a><span class="special">(</span><span class="identifier">size_type</span><span class="special">,</span> <span class="identifier">size_type</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">nothrow_t</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">void</span> <span class="special">*</span> <a class="link" href="segment_manager_base.html#idp43113936-bb"><span class="identifier">allocate_aligned</span></a><span class="special">(</span><span class="identifier">size_type</span><span class="special">,</span> <span class="identifier">size_type</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">void</span> <a class="link" href="segment_manager_base.html#idp43117392-bb"><span class="identifier">deallocate</span></a><span class="special">(</span><span class="keyword">void</span> <span class="special">*</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">void</span> <a class="link" href="segment_manager_base.html#idp43119408-bb"><span class="identifier">grow</span></a><span class="special">(</span><span class="identifier">size_type</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">void</span> <a class="link" href="segment_manager_base.html#idp43121440-bb"><span class="identifier">shrink_to_fit</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">bool</span> <a class="link" href="segment_manager_base.html#idp43122784-bb"><span class="identifier">all_memory_deallocated</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">bool</span> <a class="link" href="segment_manager_base.html#idp43124112-bb"><span class="identifier">check_sanity</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">void</span> <a class="link" href="segment_manager_base.html#idp43125440-bb"><span class="identifier">zero_free_memory</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
-  <span class="identifier">size_type</span> <a class="link" href="segment_manager_base.html#idp43126768-bb"><span class="identifier">size</span></a><span class="special">(</span><span class="keyword">const</span> <span class="keyword">void</span> <span class="special">*</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="comment">// <a class="link" href="segment_manager_base.html#idp64060544-bb">public member functions</a></span>
+  <span class="identifier">size_type</span> <a class="link" href="segment_manager_base.html#idp64061104-bb"><span class="identifier">get_size</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="identifier">size_type</span> <a class="link" href="segment_manager_base.html#idp64062656-bb"><span class="identifier">get_free_memory</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="keyword">void</span> <span class="special">*</span> <a class="link" href="segment_manager_base.html#idp64064224-bb"><span class="identifier">allocate</span></a><span class="special">(</span><span class="identifier">size_type</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">nothrow_t</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">void</span> <span class="special">*</span> <a class="link" href="segment_manager_base.html#idp64066944-bb"><span class="identifier">allocate</span></a><span class="special">(</span><span class="identifier">size_type</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">void</span> <span class="special">*</span> <a class="link" href="segment_manager_base.html#idp64069664-bb"><span class="identifier">allocate_aligned</span></a><span class="special">(</span><span class="identifier">size_type</span><span class="special">,</span> <span class="identifier">size_type</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">nothrow_t</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">void</span> <span class="special">*</span> <a class="link" href="segment_manager_base.html#idp64073072-bb"><span class="identifier">allocate_aligned</span></a><span class="special">(</span><span class="identifier">size_type</span><span class="special">,</span> <span class="identifier">size_type</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">void</span> <a class="link" href="segment_manager_base.html#idp64076528-bb"><span class="identifier">deallocate</span></a><span class="special">(</span><span class="keyword">void</span> <span class="special">*</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">void</span> <a class="link" href="segment_manager_base.html#idp64078544-bb"><span class="identifier">grow</span></a><span class="special">(</span><span class="identifier">size_type</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">void</span> <a class="link" href="segment_manager_base.html#idp64080576-bb"><span class="identifier">shrink_to_fit</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">bool</span> <a class="link" href="segment_manager_base.html#idp64081920-bb"><span class="identifier">all_memory_deallocated</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">bool</span> <a class="link" href="segment_manager_base.html#idp64083248-bb"><span class="identifier">check_sanity</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">void</span> <a class="link" href="segment_manager_base.html#idp64084576-bb"><span class="identifier">zero_free_memory</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
+  <span class="identifier">size_type</span> <a class="link" href="segment_manager_base.html#idp64085904-bb"><span class="identifier">size</span></a><span class="special">(</span><span class="keyword">const</span> <span class="keyword">void</span> <span class="special">*</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
 
-  <span class="comment">// <a class="link" href="segment_manager_base.html#idp43132832-bb">public static functions</a></span>
-  <span class="keyword">static</span> <span class="identifier">size_type</span> <a class="link" href="segment_manager_base.html#idp43133392-bb"><span class="identifier">get_min_size</span></a><span class="special">(</span><span class="identifier">size_type</span><span class="special">)</span><span class="special">;</span>
+  <span class="comment">// <a class="link" href="segment_manager_base.html#idp64091968-bb">public static functions</a></span>
+  <span class="keyword">static</span> <span class="identifier">size_type</span> <a class="link" href="segment_manager_base.html#idp64092528-bb"><span class="identifier">get_min_size</span></a><span class="special">(</span><span class="identifier">size_type</span><span class="special">)</span><span class="special">;</span>
 
   <span class="comment">// <a class="link" href="segment_manager_base.html#boost.interprocess.segment_manager_basepublic-data-members">public data members</a></span>
   <span class="keyword">static</span> <span class="keyword">const</span> <span class="identifier">size_type</span> <a class="link" href="segment_manager_base.html#boost.interprocess.segment_manager_base.PayloadPerAllocation"><span class="identifier">PayloadPerAllocation</span></a><span class="special">;</span>
 <span class="special">}</span><span class="special">;</span></pre></div>
 <div class="refsect1">
-<a name="idp258444848"></a><h2>Description</h2>
+<a name="idp228819696"></a><h2>Description</h2>
 <p>This object is the public base class of segment manager. This class only depends on the memory allocation algorithm and implements all the allocation features not related to named or unique objects.</p>
 <p>Storing a reference to <a class="link" href="segment_manager.html" title="Class template segment_manager">segment_manager</a> forces the holder class to be dependent on index types and character types. When such dependence is not desirable and only anonymous and raw allocations are needed, <a class="link" href="segment_manager_base.html" title="Class template segment_manager_base">segment_manager_base</a> is the correct answer. </p>
 <div class="refsect2">
-<a name="idp258447904"></a><h3>
+<a name="idp228822224"></a><h3>
 <a name="boost.interprocess.segment_manager_baseconstruct-copy-destruct"></a><code class="computeroutput">segment_manager_base</code> 
         public
        construct/copy/destruct</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
-<pre class="literallayout"><a name="idp43129072-bb"></a><span class="identifier">segment_manager_base</span><span class="special">(</span><span class="identifier">size_type</span> sz<span class="special">,</span> <span class="identifier">size_type</span> reserved_bytes<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><a name="idp64088208-bb"></a><span class="identifier">segment_manager_base</span><span class="special">(</span><span class="identifier">size_type</span> sz<span class="special">,</span> <span class="identifier">size_type</span> reserved_bytes<span class="special">)</span><span class="special">;</span></pre>
 <p>Constructor of the <code class="computeroutput"><a class="link" href="segment_manager_base.html" title="Class template segment_manager_base">segment_manager_base</a></code></p>
 <p>"size" is the size of the memory segment where the basic segment manager is being constructed.</p>
 <p>"reserved_bytes" is the number of bytes after the end of the memory algorithm object itself that the memory algorithm will exclude from dynamic allocation</p>
@@ -82,71 +82,71 @@
 </li></ol></div>
 </div>
 <div class="refsect2">
-<a name="idp258458448"></a><h3>
-<a name="idp43101408-bb"></a><code class="computeroutput">segment_manager_base</code> public member functions</h3>
+<a name="idp228831504"></a><h3>
+<a name="idp64060544-bb"></a><code class="computeroutput">segment_manager_base</code> public member functions</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
 <li class="listitem">
-<pre class="literallayout"><span class="identifier">size_type</span> <a name="idp43101968-bb"></a><span class="identifier">get_size</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="identifier">size_type</span> <a name="idp64061104-bb"></a><span class="identifier">get_size</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>
 <p>Returns the size of the memory segment </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="identifier">size_type</span> <a name="idp43103520-bb"></a><span class="identifier">get_free_memory</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="identifier">size_type</span> <a name="idp64062656-bb"></a><span class="identifier">get_free_memory</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>
 <p>Returns the number of free bytes of the memory segment </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">void</span> <span class="special">*</span> <a name="idp43105088-bb"></a><span class="identifier">allocate</span><span class="special">(</span><span class="identifier">size_type</span> nbytes<span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">nothrow_t</span><span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">void</span> <span class="special">*</span> <a name="idp64064224-bb"></a><span class="identifier">allocate</span><span class="special">(</span><span class="identifier">size_type</span> nbytes<span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">nothrow_t</span><span class="special">)</span><span class="special">;</span></pre>
 <p>Allocates nbytes bytes. This function is only used in single-segment management. Never throws </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">void</span> <span class="special">*</span> <a name="idp43107808-bb"></a><span class="identifier">allocate</span><span class="special">(</span><span class="identifier">size_type</span> nbytes<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">void</span> <span class="special">*</span> <a name="idp64066944-bb"></a><span class="identifier">allocate</span><span class="special">(</span><span class="identifier">size_type</span> nbytes<span class="special">)</span><span class="special">;</span></pre>
 <p>Allocates nbytes bytes. Throws <code class="computeroutput"><a class="link" href="bad_alloc.html" title="Class bad_alloc">boost::interprocess::bad_alloc</a></code> on failure </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">void</span> <span class="special">*</span> <a name="idp43110528-bb"></a><span class="identifier">allocate_aligned</span><span class="special">(</span><span class="identifier">size_type</span> nbytes<span class="special">,</span> <span class="identifier">size_type</span> alignment<span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">nothrow_t</span><span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">void</span> <span class="special">*</span> <a name="idp64069664-bb"></a><span class="identifier">allocate_aligned</span><span class="special">(</span><span class="identifier">size_type</span> nbytes<span class="special">,</span> <span class="identifier">size_type</span> alignment<span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">nothrow_t</span><span class="special">)</span><span class="special">;</span></pre>
 <p>Allocates nbytes bytes. This function is only used in single-segment management. Never throws </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">void</span> <span class="special">*</span> <a name="idp43113936-bb"></a><span class="identifier">allocate_aligned</span><span class="special">(</span><span class="identifier">size_type</span> nbytes<span class="special">,</span> <span class="identifier">size_type</span> alignment<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">void</span> <span class="special">*</span> <a name="idp64073072-bb"></a><span class="identifier">allocate_aligned</span><span class="special">(</span><span class="identifier">size_type</span> nbytes<span class="special">,</span> <span class="identifier">size_type</span> alignment<span class="special">)</span><span class="special">;</span></pre>
 <p>Allocates nbytes bytes. This function is only used in single-segment management. Throws <code class="computeroutput"><a class="link" href="bad_alloc.html" title="Class bad_alloc">bad_alloc</a></code> when fails </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">void</span> <a name="idp43117392-bb"></a><span class="identifier">deallocate</span><span class="special">(</span><span class="keyword">void</span> <span class="special">*</span> addr<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">void</span> <a name="idp64076528-bb"></a><span class="identifier">deallocate</span><span class="special">(</span><span class="keyword">void</span> <span class="special">*</span> addr<span class="special">)</span><span class="special">;</span></pre>
 <p>Deallocates the bytes allocated with allocate/allocate_many() pointed by addr </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">void</span> <a name="idp43119408-bb"></a><span class="identifier">grow</span><span class="special">(</span><span class="identifier">size_type</span> extra_size<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">void</span> <a name="idp64078544-bb"></a><span class="identifier">grow</span><span class="special">(</span><span class="identifier">size_type</span> extra_size<span class="special">)</span><span class="special">;</span></pre>
 <p>Increases managed memory in extra_size bytes more. This only works with single-segment management. </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">void</span> <a name="idp43121440-bb"></a><span class="identifier">shrink_to_fit</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">void</span> <a name="idp64080576-bb"></a><span class="identifier">shrink_to_fit</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
 <p>Decreases managed memory to the minimum. This only works with single-segment management. </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">bool</span> <a name="idp43122784-bb"></a><span class="identifier">all_memory_deallocated</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">bool</span> <a name="idp64081920-bb"></a><span class="identifier">all_memory_deallocated</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
 <p>Returns the result of "all_memory_deallocated()" function of the used memory algorithm </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">bool</span> <a name="idp43124112-bb"></a><span class="identifier">check_sanity</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">bool</span> <a name="idp64083248-bb"></a><span class="identifier">check_sanity</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
 <p>Returns the result of "check_sanity()" function of the used memory algorithm </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">void</span> <a name="idp43125440-bb"></a><span class="identifier">zero_free_memory</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">void</span> <a name="idp64084576-bb"></a><span class="identifier">zero_free_memory</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
 <p>Writes to zero free memory (memory not yet allocated) of the memory algorithm </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="identifier">size_type</span> <a name="idp43126768-bb"></a><span class="identifier">size</span><span class="special">(</span><span class="keyword">const</span> <span class="keyword">void</span> <span class="special">*</span> ptr<span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>Returns the size of the buffer previously allocated pointed by ptr. </li>
+<pre class="literallayout"><span class="identifier">size_type</span> <a name="idp64085904-bb"></a><span class="identifier">size</span><span class="special">(</span><span class="keyword">const</span> <span class="keyword">void</span> <span class="special">*</span> ptr<span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>Returns the size of the buffer previously allocated pointed by ptr. </li>
 </ol></div>
 </div>
 <div class="refsect2">
-<a name="idp258542208"></a><h3>
-<a name="idp43132832-bb"></a><code class="computeroutput">segment_manager_base</code> public static functions</h3>
+<a name="idp228906736"></a><h3>
+<a name="idp64091968-bb"></a><code class="computeroutput">segment_manager_base</code> public static functions</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
-<pre class="literallayout"><span class="keyword">static</span> <span class="identifier">size_type</span> <a name="idp43133392-bb"></a><span class="identifier">get_min_size</span><span class="special">(</span><span class="identifier">size_type</span> size<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">static</span> <span class="identifier">size_type</span> <a name="idp64092528-bb"></a><span class="identifier">get_min_size</span><span class="special">(</span><span class="identifier">size_type</span> size<span class="special">)</span><span class="special">;</span></pre>
 <p>Obtains the minimum size needed by the segment manager </p>
 </li></ol></div>
 </div>
 <div class="refsect2">
-<a name="idp258550304"></a><h3>
+<a name="idp228913936"></a><h3>
 <a name="boost.interprocess.segment_manager_basepublic-data-members"></a><code class="computeroutput">segment_manager_base</code> 
         public
        public data members</h3>

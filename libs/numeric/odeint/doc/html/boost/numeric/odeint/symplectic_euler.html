@@ -33,45 +33,26 @@
 
 </span><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> Coor<span class="special">,</span> <span class="keyword">typename</span> Momentum <span class="special">=</span> <span class="identifier">Coor</span><span class="special">,</span> <span class="keyword">typename</span> Value <span class="special">=</span> <span class="keyword">double</span><span class="special">,</span> 
          <span class="keyword">typename</span> CoorDeriv <span class="special">=</span> <span class="identifier">Coor</span><span class="special">,</span> <span class="keyword">typename</span> MomentumDeriv <span class="special">=</span> <span class="identifier">Coor</span><span class="special">,</span> 
-         <span class="keyword">typename</span> Time <span class="special">=</span> <span class="identifier">Value</span><span class="special">,</span> <span class="keyword">typename</span> Algebra <span class="special">=</span> <span class="identifier">range_algebra</span><span class="special">,</span> 
-         <span class="keyword">typename</span> Operations <span class="special">=</span> <span class="identifier">default_operations</span><span class="special">,</span> 
+         <span class="keyword">typename</span> Time <span class="special">=</span> <span class="identifier">Value</span><span class="special">,</span> 
+         <span class="keyword">typename</span> Algebra <span class="special">=</span> <span class="keyword">typename</span> <span class="identifier">algebra_dispatcher</span><span class="special">&lt;</span> <span class="identifier">Coor</span> <span class="special">&gt;</span><span class="special">::</span><span class="identifier">algebra_type</span><span class="special">,</span> 
+         <span class="keyword">typename</span> Operations <span class="special">=</span> <span class="keyword">typename</span> <span class="identifier">operations_dispatcher</span><span class="special">&lt;</span> <span class="identifier">Coor</span> <span class="special">&gt;</span><span class="special">::</span><span class="identifier">operations_type</span><span class="special">,</span> 
          <span class="keyword">typename</span> Resizer <span class="special">=</span> <span class="identifier">initially_resizer</span><span class="special">&gt;</span> 
-<span class="keyword">class</span> <a class="link" href="symplectic_euler.html" title="Class template symplectic_euler">symplectic_euler</a> <span class="special">:</span> <span class="keyword">public</span> boost::numeric::odeint::symplectic_nystroem_stepper_base&lt; NumOfStages, Order, Coor, Momentum, Value, CoorDeriv, MomentumDeriv, Time, Algebra, Operations, Resizer &gt;
-<span class="special">{</span>
+<span class="keyword">class</span> <a class="link" href="symplectic_euler.html" title="Class template symplectic_euler">symplectic_euler</a> <span class="special">:</span> <span class="keyword">public</span> <span class="identifier">symplectic_nystroem_stepper_base</span> <span class="special">{</span>
 <span class="keyword">public</span><span class="special">:</span>
   <span class="comment">// types</span>
   <span class="keyword">typedef</span> <span class="identifier">stepper_base_type</span><span class="special">::</span><span class="identifier">algebra_type</span> <a name="boost.numeric.odeint.symplectic_euler.algebra_type"></a><span class="identifier">algebra_type</span><span class="special">;</span>
   <span class="keyword">typedef</span> <span class="identifier">stepper_base_type</span><span class="special">::</span><span class="identifier">value_type</span>   <a name="boost.numeric.odeint.symplectic_euler.value_type"></a><span class="identifier">value_type</span><span class="special">;</span>  
 
   <span class="comment">// <a class="link" href="symplectic_euler.html#boost.numeric.odeint.symplectic_eulerconstruct-copy-destruct">construct/copy/destruct</a></span>
-  <a class="link" href="symplectic_euler.html#idp43211088-bb"><span class="identifier">symplectic_euler</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">algebra_type</span> <span class="special">&amp;</span> <span class="special">=</span> <span class="identifier">algebra_type</span><span class="special">(</span><span class="special">)</span><span class="special">)</span><span class="special">;</span>
-
-  <span class="comment">// <a class="link" href="symplectic_euler.html#idp43166496-bb">public member functions</a></span>
-  <span class="identifier">order_type</span> <a class="link" href="symplectic_euler.html#idp43167056-bb"><span class="identifier">order</span></a><span class="special">(</span><span class="keyword">void</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> System<span class="special">,</span> <span class="keyword">typename</span> StateInOut<span class="special">&gt;</span> 
-    <span class="keyword">void</span> <a class="link" href="symplectic_euler.html#idp43169712-bb"><span class="identifier">do_step</span></a><span class="special">(</span><span class="identifier">System</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">StateInOut</span> <span class="special">&amp;</span><span class="special">,</span> <span class="identifier">time_type</span><span class="special">,</span> <span class="identifier">time_type</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> System<span class="special">,</span> <span class="keyword">typename</span> StateInOut<span class="special">&gt;</span> 
-    <span class="keyword">void</span> <a class="link" href="symplectic_euler.html#idp43174720-bb"><span class="identifier">do_step</span></a><span class="special">(</span><span class="identifier">System</span><span class="special">,</span> <span class="identifier">StateInOut</span> <span class="special">&amp;</span><span class="special">,</span> <span class="identifier">time_type</span><span class="special">,</span> <span class="identifier">time_type</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> System<span class="special">,</span> <span class="keyword">typename</span> CoorInOut<span class="special">,</span> <span class="keyword">typename</span> MomentumInOut<span class="special">&gt;</span> 
-    <span class="keyword">void</span> <a class="link" href="symplectic_euler.html#idp43180144-bb"><span class="identifier">do_step</span></a><span class="special">(</span><span class="identifier">System</span><span class="special">,</span> <span class="identifier">CoorInOut</span> <span class="special">&amp;</span><span class="special">,</span> <span class="identifier">MomentumInOut</span> <span class="special">&amp;</span><span class="special">,</span> <span class="identifier">time_type</span><span class="special">,</span> <span class="identifier">time_type</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> System<span class="special">,</span> <span class="keyword">typename</span> CoorInOut<span class="special">,</span> <span class="keyword">typename</span> MomentumInOut<span class="special">&gt;</span> 
-    <span class="keyword">void</span> <a class="link" href="symplectic_euler.html#idp43186400-bb"><span class="identifier">do_step</span></a><span class="special">(</span><span class="identifier">System</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">CoorInOut</span> <span class="special">&amp;</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">MomentumInOut</span> <span class="special">&amp;</span><span class="special">,</span> <span class="identifier">time_type</span><span class="special">,</span> 
-                 <span class="identifier">time_type</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> System<span class="special">,</span> <span class="keyword">typename</span> StateIn<span class="special">,</span> <span class="keyword">typename</span> StateOut<span class="special">&gt;</span> 
-    <span class="keyword">void</span> <a class="link" href="symplectic_euler.html#idp43193104-bb"><span class="identifier">do_step</span></a><span class="special">(</span><span class="identifier">System</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">StateIn</span> <span class="special">&amp;</span><span class="special">,</span> <span class="identifier">time_type</span><span class="special">,</span> <span class="identifier">StateOut</span> <span class="special">&amp;</span><span class="special">,</span> <span class="identifier">time_type</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> StateType<span class="special">&gt;</span> <span class="keyword">void</span> <a class="link" href="symplectic_euler.html#idp43199360-bb"><span class="identifier">adjust_size</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">StateType</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">const</span> <span class="identifier">coef_type</span> <span class="special">&amp;</span> <a class="link" href="symplectic_euler.html#idp43202976-bb"><span class="identifier">coef_a</span></a><span class="special">(</span><span class="keyword">void</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">const</span> <span class="identifier">coef_type</span> <span class="special">&amp;</span> <a class="link" href="symplectic_euler.html#idp43205088-bb"><span class="identifier">coef_b</span></a><span class="special">(</span><span class="keyword">void</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="identifier">algebra_type</span> <span class="special">&amp;</span> <a class="link" href="symplectic_euler.html#idp43207200-bb"><span class="identifier">algebra</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">const</span> <span class="identifier">algebra_type</span> <span class="special">&amp;</span> <a class="link" href="symplectic_euler.html#idp43208928-bb"><span class="identifier">algebra</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <a class="link" href="symplectic_euler.html#idp36531376-bb"><span class="identifier">symplectic_euler</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">algebra_type</span> <span class="special">&amp;</span> <span class="special">=</span> <span class="identifier">algebra_type</span><span class="special">(</span><span class="special">)</span><span class="special">)</span><span class="special">;</span>
 <span class="special">}</span><span class="special">;</span></pre></div>
 <div class="refsect1">
-<a name="idp128561792"></a><h2>Description</h2>
+<a name="idp111615344"></a><h2>Description</h2>
 <p>The method is of first order and has one stage. It is described HERE.</p>
 <p>
 </p>
 <div class="refsect2">
-<a name="idp128562800"></a><h3>Template Parameters</h3>
+<a name="idp111616272"></a><h3>Template Parameters</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
 <li class="listitem">
 <pre class="literallayout"><span class="keyword">typename</span> Coor</pre>
@@ -95,11 +76,11 @@
 <p>The type representing the time t. </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">typename</span> Algebra <span class="special">=</span> <span class="identifier">range_algebra</span></pre>
+<pre class="literallayout"><span class="keyword">typename</span> Algebra <span class="special">=</span> <span class="keyword">typename</span> <span class="identifier">algebra_dispatcher</span><span class="special">&lt;</span> <span class="identifier">Coor</span> <span class="special">&gt;</span><span class="special">::</span><span class="identifier">algebra_type</span></pre>
 <p>The algebra. </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">typename</span> Operations <span class="special">=</span> <span class="identifier">default_operations</span></pre>
+<pre class="literallayout"><span class="keyword">typename</span> Operations <span class="special">=</span> <span class="keyword">typename</span> <span class="identifier">operations_dispatcher</span><span class="special">&lt;</span> <span class="identifier">Coor</span> <span class="special">&gt;</span><span class="special">::</span><span class="identifier">operations_type</span></pre>
 <p>The operations. </p>
 </li>
 <li class="listitem">
@@ -109,12 +90,12 @@
 </ol></div>
 </div>
 <div class="refsect2">
-<a name="idp128591968"></a><h3>
+<a name="idp111652768"></a><h3>
 <a name="boost.numeric.odeint.symplectic_eulerconstruct-copy-destruct"></a><code class="computeroutput">symplectic_euler</code> 
         public
        construct/copy/destruct</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
-<pre class="literallayout"><a name="idp43211088-bb"></a><span class="identifier">symplectic_euler</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">algebra_type</span> <span class="special">&amp;</span> algebra <span class="special">=</span> <span class="identifier">algebra_type</span><span class="special">(</span><span class="special">)</span><span class="special">)</span><span class="special">;</span></pre>Constructs the <code class="computeroutput"><a class="link" href="symplectic_euler.html" title="Class template symplectic_euler">symplectic_euler</a></code>. This constructor can be used as a default constructor if the algebra has a default constructor. <p>
+<pre class="literallayout"><a name="idp36531376-bb"></a><span class="identifier">symplectic_euler</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">algebra_type</span> <span class="special">&amp;</span> algebra <span class="special">=</span> <span class="identifier">algebra_type</span><span class="special">(</span><span class="special">)</span><span class="special">)</span><span class="special">;</span></pre>Constructs the <code class="computeroutput"><a class="link" href="symplectic_euler.html" title="Class template symplectic_euler">symplectic_euler</a></code>. This constructor can be used as a default constructor if the algebra has a default constructor. <p>
 </p>
 <div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
@@ -130,106 +111,12 @@
 </colgroup>
 <tbody><tr>
 <td><p><span class="term"><code class="computeroutput">algebra</code></span></p></td>
-<td><p>A copy of algebra is made and stored inside <code class="computeroutput"><a class="link" href="explicit_stepper_base.html" title="Class template explicit_stepper_base">explicit_stepper_base</a></code>. </p></td>
+<td><p>A copy of algebra is made and stored inside explicit_stepper_base. </p></td>
 </tr></tbody>
 </table></div></td>
 </tr></tbody>
 </table></div>
 </li></ol></div>
-</div>
-<div class="refsect2">
-<a name="idp128608384"></a><h3>
-<a name="idp43166496-bb"></a><code class="computeroutput">symplectic_euler</code> public member functions</h3>
-<div class="orderedlist"><ol class="orderedlist" type="1">
-<li class="listitem">
-<pre class="literallayout"><span class="identifier">order_type</span> <a name="idp43167056-bb"></a><span class="identifier">order</span><span class="special">(</span><span class="keyword">void</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>
-<p>
-</p>
-<div class="variablelist"><table border="0" class="variablelist compact">
-<colgroup>
-<col align="left" valign="top">
-<col>
-</colgroup>
-<tbody><tr>
-<td><p><span class="term">Returns:</span></p></td>
-<td><p>Returns the order of the stepper. </p></td>
-</tr></tbody>
-</table></div>
-</li>
-<li class="listitem"><pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> System<span class="special">,</span> <span class="keyword">typename</span> StateInOut<span class="special">&gt;</span> 
-  <span class="keyword">void</span> <a name="idp43169712-bb"></a><span class="identifier">do_step</span><span class="special">(</span><span class="identifier">System</span> system<span class="special">,</span> <span class="keyword">const</span> <span class="identifier">StateInOut</span> <span class="special">&amp;</span> state<span class="special">,</span> <span class="identifier">time_type</span> t<span class="special">,</span> 
-               <span class="identifier">time_type</span> dt<span class="special">)</span><span class="special">;</span></pre></li>
-<li class="listitem">
-<pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> System<span class="special">,</span> <span class="keyword">typename</span> StateInOut<span class="special">&gt;</span> 
-  <span class="keyword">void</span> <a name="idp43174720-bb"></a><span class="identifier">do_step</span><span class="special">(</span><span class="identifier">System</span> system<span class="special">,</span> <span class="identifier">StateInOut</span> <span class="special">&amp;</span> state<span class="special">,</span> <span class="identifier">time_type</span> t<span class="special">,</span> <span class="identifier">time_type</span> dt<span class="special">)</span><span class="special">;</span></pre>Same function as above. It differs only in a different const specifier in order to solve the forwarding problem, can be used with Boost.Range. </li>
-<li class="listitem"><pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> System<span class="special">,</span> <span class="keyword">typename</span> CoorInOut<span class="special">,</span> <span class="keyword">typename</span> MomentumInOut<span class="special">&gt;</span> 
-  <span class="keyword">void</span> <a name="idp43180144-bb"></a><span class="identifier">do_step</span><span class="special">(</span><span class="identifier">System</span> system<span class="special">,</span> <span class="identifier">CoorInOut</span> <span class="special">&amp;</span> q<span class="special">,</span> <span class="identifier">MomentumInOut</span> <span class="special">&amp;</span> p<span class="special">,</span> <span class="identifier">time_type</span> t<span class="special">,</span> 
-               <span class="identifier">time_type</span> dt<span class="special">)</span><span class="special">;</span></pre></li>
-<li class="listitem">
-<pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> System<span class="special">,</span> <span class="keyword">typename</span> CoorInOut<span class="special">,</span> <span class="keyword">typename</span> MomentumInOut<span class="special">&gt;</span> 
-  <span class="keyword">void</span> <a name="idp43186400-bb"></a><span class="identifier">do_step</span><span class="special">(</span><span class="identifier">System</span> system<span class="special">,</span> <span class="keyword">const</span> <span class="identifier">CoorInOut</span> <span class="special">&amp;</span> q<span class="special">,</span> <span class="keyword">const</span> <span class="identifier">MomentumInOut</span> <span class="special">&amp;</span> p<span class="special">,</span> 
-               <span class="identifier">time_type</span> t<span class="special">,</span> <span class="identifier">time_type</span> dt<span class="special">)</span><span class="special">;</span></pre>Same function as do_step( system , q , p , t , dt ). It differs only in a different const specifier in order to solve the forwarding problem, can be called with Boost.Range. </li>
-<li class="listitem"><pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> System<span class="special">,</span> <span class="keyword">typename</span> StateIn<span class="special">,</span> <span class="keyword">typename</span> StateOut<span class="special">&gt;</span> 
-  <span class="keyword">void</span> <a name="idp43193104-bb"></a><span class="identifier">do_step</span><span class="special">(</span><span class="identifier">System</span> system<span class="special">,</span> <span class="keyword">const</span> <span class="identifier">StateIn</span> <span class="special">&amp;</span> in<span class="special">,</span> <span class="identifier">time_type</span> t<span class="special">,</span> <span class="identifier">StateOut</span> <span class="special">&amp;</span> out<span class="special">,</span> 
-               <span class="identifier">time_type</span> dt<span class="special">)</span><span class="special">;</span></pre></li>
-<li class="listitem">
-<pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> StateType<span class="special">&gt;</span> <span class="keyword">void</span> <a name="idp43199360-bb"></a><span class="identifier">adjust_size</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">StateType</span> <span class="special">&amp;</span> x<span class="special">)</span><span class="special">;</span></pre>Adjust the size of all temporaries in the stepper manually. <p>
-</p>
-<div class="variablelist"><table border="0" class="variablelist compact">
-<colgroup>
-<col align="left" valign="top">
-<col>
-</colgroup>
-<tbody><tr>
-<td><p><span class="term">Parameters:</span></p></td>
-<td><div class="variablelist"><table border="0" class="variablelist compact">
-<colgroup>
-<col align="left" valign="top">
-<col>
-</colgroup>
-<tbody><tr>
-<td><p><span class="term"><code class="computeroutput">x</code></span></p></td>
-<td><p>A state from which the size of the temporaries to be resized is deduced. </p></td>
-</tr></tbody>
-</table></div></td>
-</tr></tbody>
-</table></div>
-</li>
-<li class="listitem">
-<pre class="literallayout"><span class="keyword">const</span> <span class="identifier">coef_type</span> <span class="special">&amp;</span> <a name="idp43202976-bb"></a><span class="identifier">coef_a</span><span class="special">(</span><span class="keyword">void</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>Returns the coefficients a. </li>
-<li class="listitem">
-<pre class="literallayout"><span class="keyword">const</span> <span class="identifier">coef_type</span> <span class="special">&amp;</span> <a name="idp43205088-bb"></a><span class="identifier">coef_b</span><span class="special">(</span><span class="keyword">void</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>Returns the coefficients b. </li>
-<li class="listitem">
-<pre class="literallayout"><span class="identifier">algebra_type</span> <span class="special">&amp;</span> <a name="idp43207200-bb"></a><span class="identifier">algebra</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
-<p>
-</p>
-<div class="variablelist"><table border="0" class="variablelist compact">
-<colgroup>
-<col align="left" valign="top">
-<col>
-</colgroup>
-<tbody><tr>
-<td><p><span class="term">Returns:</span></p></td>
-<td><p>A reference to the algebra which is held by this class. </p></td>
-</tr></tbody>
-</table></div>
-</li>
-<li class="listitem">
-<pre class="literallayout"><span class="keyword">const</span> <span class="identifier">algebra_type</span> <span class="special">&amp;</span> <a name="idp43208928-bb"></a><span class="identifier">algebra</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>
-<p>
-</p>
-<div class="variablelist"><table border="0" class="variablelist compact">
-<colgroup>
-<col align="left" valign="top">
-<col>
-</colgroup>
-<tbody><tr>
-<td><p><span class="term">Returns:</span></p></td>
-<td><p>A const reference to the algebra which is held by this class. </p></td>
-</tr></tbody>
-</table></div>
-</li>
-</ol></div>
 </div>
 </div>
 </div>

@@ -30,30 +30,30 @@
   <span class="keyword">typedef</span> <span class="identifier">FunT</span><span class="special">::</span><span class="identifier">result_type</span> <a name="boost.log.as_action_adapter.result_type"></a><span class="identifier">result_type</span><span class="special">;</span>
 
   <span class="comment">// <a class="link" href="as_action_adapter.html#boost.log.as_action_adapterconstruct-copy-destruct">construct/copy/destruct</a></span>
-  <a class="link" href="as_action_adapter.html#idp57707856-bb"><span class="identifier">as_action_adapter</span></a><span class="special">(</span><span class="special">)</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
-  <span class="keyword">explicit</span> <a class="link" href="as_action_adapter.html#idp57708416-bb"><span class="identifier">as_action_adapter</span></a><span class="special">(</span><span class="identifier">FunT</span> <span class="keyword">const</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="as_action_adapter.html#idp58859568-bb"><span class="identifier">as_action_adapter</span></a><span class="special">(</span><span class="special">)</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
+  <span class="keyword">explicit</span> <a class="link" href="as_action_adapter.html#idp58860128-bb"><span class="identifier">as_action_adapter</span></a><span class="special">(</span><span class="identifier">FunT</span> <span class="keyword">const</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
 
-  <span class="comment">// <a class="link" href="as_action_adapter.html#idp57702544-bb">public member functions</a></span>
+  <span class="comment">// <a class="link" href="as_action_adapter.html#idp58854256-bb">public member functions</a></span>
   <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> AttributeT<span class="special">,</span> <span class="keyword">typename</span> ContextT<span class="special">&gt;</span> 
-    <span class="identifier">result_type</span> <a class="link" href="as_action_adapter.html#idp57703104-bb"><span class="keyword">operator</span><span class="special">(</span><span class="special">)</span></a><span class="special">(</span><span class="identifier">AttributeT</span> <span class="keyword">const</span> <span class="special">&amp;</span><span class="special">,</span> <span class="identifier">ContextT</span> <span class="keyword">const</span> <span class="special">&amp;</span><span class="special">,</span> <span class="keyword">bool</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+    <span class="identifier">result_type</span> <a class="link" href="as_action_adapter.html#idp58854816-bb"><span class="keyword">operator</span><span class="special">(</span><span class="special">)</span></a><span class="special">(</span><span class="identifier">AttributeT</span> <span class="keyword">const</span> <span class="special">&amp;</span><span class="special">,</span> <span class="identifier">ContextT</span> <span class="keyword">const</span> <span class="special">&amp;</span><span class="special">,</span> <span class="keyword">bool</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
 <span class="special">}</span><span class="special">;</span></pre></div>
 <div class="refsect1">
-<a name="idp131140560"></a><h2>Description</h2>
+<a name="idp128622720"></a><h2>Description</h2>
 <div class="refsect2">
-<a name="idp131140976"></a><h3>
+<a name="idp128623136"></a><h3>
 <a name="boost.log.as_action_adapterconstruct-copy-destruct"></a><code class="computeroutput">as_action_adapter</code> 
         public
        construct/copy/destruct</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
-<li class="listitem"><pre class="literallayout"><a name="idp57707856-bb"></a><span class="identifier">as_action_adapter</span><span class="special">(</span><span class="special">)</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span></pre></li>
-<li class="listitem"><pre class="literallayout"><span class="keyword">explicit</span> <a name="idp57708416-bb"></a><span class="identifier">as_action_adapter</span><span class="special">(</span><span class="identifier">FunT</span> <span class="keyword">const</span> <span class="special">&amp;</span> fun<span class="special">)</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><a name="idp58859568-bb"></a><span class="identifier">as_action_adapter</span><span class="special">(</span><span class="special">)</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><span class="keyword">explicit</span> <a name="idp58860128-bb"></a><span class="identifier">as_action_adapter</span><span class="special">(</span><span class="identifier">FunT</span> <span class="keyword">const</span> <span class="special">&amp;</span> fun<span class="special">)</span><span class="special">;</span></pre></li>
 </ol></div>
 </div>
 <div class="refsect2">
-<a name="idp131154608"></a><h3>
-<a name="idp57702544-bb"></a><code class="computeroutput">as_action_adapter</code> public member functions</h3>
+<a name="idp128636768"></a><h3>
+<a name="idp58854256-bb"></a><code class="computeroutput">as_action_adapter</code> public member functions</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> AttributeT<span class="special">,</span> <span class="keyword">typename</span> ContextT<span class="special">&gt;</span> 
-  <span class="identifier">result_type</span> <a name="idp57703104-bb"></a><span class="keyword">operator</span><span class="special">(</span><span class="special">)</span><span class="special">(</span><span class="identifier">AttributeT</span> <span class="keyword">const</span> <span class="special">&amp;</span> attr<span class="special">,</span> <span class="identifier">ContextT</span> <span class="keyword">const</span> <span class="special">&amp;</span> ctx<span class="special">,</span> 
+  <span class="identifier">result_type</span> <a name="idp58854816-bb"></a><span class="keyword">operator</span><span class="special">(</span><span class="special">)</span><span class="special">(</span><span class="identifier">AttributeT</span> <span class="keyword">const</span> <span class="special">&amp;</span> attr<span class="special">,</span> <span class="identifier">ContextT</span> <span class="keyword">const</span> <span class="special">&amp;</span> ctx<span class="special">,</span> 
                          <span class="keyword">bool</span> <span class="special">&amp;</span> pass<span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre></li></ol></div>
 </div>
 </div>
