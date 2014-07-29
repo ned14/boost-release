@@ -9106,7 +9106,6 @@
 </h3></div></div></div>
 <div class="toc"><dl class="toc">
 <dt><span class="section"><a href="synchronization.html#thread.synchronization.executors.introduction">Introduction</a></span></dt>
-<dt><span class="section"><a href="synchronization.html#thread.synchronization.executors.tutorial">Tutorial</a></span></dt>
 <dt><span class="section"><a href="synchronization.html#thread.synchronization.executors.examples">Examples</a></span></dt>
 <dt><span class="section"><a href="synchronization.html#thread.synchronization.executors.rationale">Design
         Rationale</a></span></dt>
@@ -9262,15 +9261,6 @@
           and a thread-spawning executor <code class="computeroutput"><span class="identifier">thread_executor</span></code>.
         </p>
 </div>
-<p>
-        [
-      </p>
-<div class="section"><div class="titlepage"><div><div><h4 class="title">
-<a name="thread.synchronization.executors.tutorial"></a><a class="link" href="synchronization.html#thread.synchronization.executors.tutorial" title="Tutorial">Tutorial</a>
-</h4></div></div></div></div>
-<p>
-        ]
-      </p>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
 <a name="thread.synchronization.executors.examples"></a><a class="link" href="synchronization.html#thread.synchronization.executors.examples" title="Examples">Examples</a>
@@ -9570,8 +9560,6 @@
 <dt><span class="section"><a href="synchronization.html#thread.synchronization.executors.ref.executor_adaptor">Template
           Class <code class="computeroutput"><span class="identifier">executor_adaptor</span></code></a></span></dt>
 <dt><span class="section"><a href="synchronization.html#thread.synchronization.executors.ref.scheduled_executor">Template
-          Class <code class="computeroutput"><span class="identifier">scheduled_executor</span></code></a></span></dt>
-<dt><span class="section"><a href="synchronization.html#thread.synchronization.executors.ref.scheduled_executor0">Template
           Class <code class="computeroutput"><span class="identifier">serial_executor</span></code></a></span></dt>
 <dt><span class="section"><a href="synchronization.html#thread.synchronization.executors.ref.basic_thread_pool">Class
           <code class="computeroutput"><span class="identifier">basic_thread_pool</span></code></a></span></dt>
@@ -10115,129 +10103,9 @@
 </div>
 </div>
 </div>
-<p>
-          [
-        </p>
 <div class="section">
 <div class="titlepage"><div><div><h5 class="title">
-<a name="thread.synchronization.executors.ref.scheduled_executor"></a><a class="link" href="synchronization.html#thread.synchronization.executors.ref.scheduled_executor" title="Template Class scheduled_executor">Template
-          Class <code class="computeroutput"><span class="identifier">scheduled_executor</span></code></a>
-</h5></div></div></div>
-<p>
-            Executor providing time related functions.
-          </p>
-<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">thread</span><span class="special">/</span><span class="identifier">scheduled_executor</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
-<span class="keyword">namespace</span> <span class="identifier">boost</span> <span class="special">{</span>
-  <span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Executor</span><span class="special">&gt;</span>
-  <span class="keyword">class</span> <span class="identifier">scheduled_executor</span>
-  <span class="special">{</span>
-  <span class="identifier">Executor</span><span class="special">&amp;</span> <span class="identifier">ex</span><span class="special">;</span>
-  <span class="keyword">public</span><span class="special">:</span>
-    <span class="keyword">typedef</span>  <span class="identifier">executor</span><span class="special">::</span><span class="identifier">work</span> <span class="identifier">work</span><span class="special">;</span>
-
-    <span class="identifier">scheduled_executor</span><span class="special">(</span><span class="identifier">scheduled_executor</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="keyword">delete</span><span class="special">;</span>
-    <span class="identifier">scheduled_executor</span><span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="identifier">scheduled_executor</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="keyword">delete</span><span class="special">;</span>
-
-    <span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Rep</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Period</span><span class="special">&gt;</span>
-    <span class="identifier">scheduled_executor</span><span class="special">(</span><span class="identifier">Executor</span><span class="special">&amp;</span> <span class="identifier">ex</span><span class="special">,</span> <span class="identifier">chrono</span><span class="special">::</span><span class="identifier">duration</span><span class="special">&lt;</span><span class="identifier">Rep</span><span class="special">,</span> <span class="identifier">Period</span><span class="special">&gt;</span> <span class="identifier">granularity</span><span class="special">=</span><span class="identifier">chrono</span><span class="special">::</span><span class="identifier">milliseconds</span><span class="special">(</span><span class="number">100</span><span class="special">));</span>
-
-    <span class="identifier">Executor</span><span class="special">&amp;</span> <span class="identifier">underlying_executor</span><span class="special">();</span>
-
-    <span class="keyword">void</span> <span class="identifier">close</span><span class="special">();</span>
-    <span class="keyword">bool</span> <span class="identifier">closed</span><span class="special">();</span>
-
-    <span class="keyword">void</span> <span class="identifier">submit</span><span class="special">(</span><span class="identifier">work</span><span class="special">&amp;&amp;</span> <span class="identifier">closure</span><span class="special">);</span>
-    <span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">Closure</span><span class="special">&gt;</span>
-    <span class="keyword">void</span> <span class="identifier">submit</span><span class="special">(</span><span class="identifier">Closure</span><span class="special">&amp;&amp;</span> <span class="identifier">closure</span><span class="special">);</span>
-
-    <span class="keyword">bool</span> <span class="identifier">try_executing_one</span><span class="special">();</span>
-    <span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">Pred</span><span class="special">&gt;</span>
-    <span class="keyword">bool</span> <span class="identifier">reschedule_until</span><span class="special">(</span><span class="identifier">Pred</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">pred</span><span class="special">);</span>
-
-    <span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Clock</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Duration</span><span class="special">&gt;</span>
-    <span class="keyword">void</span> <span class="identifier">submit_at</span><span class="special">(</span><span class="identifier">chrono</span><span class="special">::</span><span class="identifier">time_point</span><span class="special">&lt;</span><span class="identifier">Clock</span><span class="special">,</span><span class="identifier">Duration</span><span class="special">&gt;</span> <span class="identifier">abs_time</span><span class="special">,</span> <span class="identifier">work</span><span class="special">&amp;&amp;</span> <span class="identifier">closure</span><span class="special">);</span>
-    <span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Rep</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Period</span><span class="special">&gt;</span>
-    <span class="keyword">void</span> <span class="identifier">submit_after</span><span class="special">(</span><span class="identifier">chrono</span><span class="special">::</span><span class="identifier">duration</span><span class="special">&lt;</span><span class="identifier">Rep</span><span class="special">,</span><span class="identifier">Period</span><span class="special">&gt;</span> <span class="identifier">rel_time</span><span class="special">,</span> <span class="identifier">work</span><span class="special">&amp;&amp;</span> <span class="identifier">closure</span><span class="special">);</span>
-    <span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Clock</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Duration</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">Closure</span><span class="special">&gt;</span>
-    <span class="keyword">void</span> <span class="identifier">submit_at</span><span class="special">(</span><span class="identifier">chrono</span><span class="special">::</span><span class="identifier">time_point</span><span class="special">&lt;</span><span class="identifier">Clock</span><span class="special">,</span><span class="identifier">Duration</span><span class="special">&gt;</span> <span class="identifier">abs_time</span><span class="special">,</span> <span class="identifier">Closure</span><span class="special">&amp;&amp;</span> <span class="identifier">closure</span><span class="special">);</span>
-    <span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Rep</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Period</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">Closure</span><span class="special">&gt;</span>
-    <span class="keyword">void</span> <span class="identifier">submit_after</span><span class="special">(</span><span class="identifier">chrono</span><span class="special">::</span><span class="identifier">duration</span><span class="special">&lt;</span><span class="identifier">Rep</span><span class="special">,</span><span class="identifier">Period</span><span class="special">&gt;</span> <span class="identifier">rel_time</span><span class="special">,</span> <span class="identifier">Closure</span><span class="special">&amp;&amp;</span> <span class="identifier">closure</span><span class="special">);</span>
-  <span class="special">};</span>
-<span class="special">}</span>
-</pre>
-<div class="section">
-<div class="titlepage"><div><div><h6 class="title">
-<a name="thread.synchronization.executors.ref.scheduled_executor.constructor"></a><a class="link" href="synchronization.html#thread.synchronization.executors.ref.scheduled_executor.constructor" title="Constructor scheduled_executor(Executor&amp;, chrono::duration&lt;Rep, Period&gt;)">Constructor
-            <code class="computeroutput"><span class="identifier">scheduled_executor</span><span class="special">(</span><span class="identifier">Executor</span><span class="special">&amp;,</span>
-            <span class="identifier">chrono</span><span class="special">::</span><span class="identifier">duration</span><span class="special">&lt;</span><span class="identifier">Rep</span><span class="special">,</span> <span class="identifier">Period</span><span class="special">&gt;)</span></code></a>
-</h6></div></div></div>
-<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Rep</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Period</span><span class="special">&gt;</span>
-<span class="identifier">scheduled_executor</span><span class="special">(</span><span class="identifier">Executor</span><span class="special">&amp;</span> <span class="identifier">ex</span><span class="special">,</span> <span class="identifier">chrono</span><span class="special">::</span><span class="identifier">duration</span><span class="special">&lt;</span><span class="identifier">Rep</span><span class="special">,</span> <span class="identifier">Period</span><span class="special">&gt;</span> <span class="identifier">granularity</span><span class="special">=</span><span class="identifier">chrono</span><span class="special">::</span><span class="identifier">milliseconds</span><span class="special">(</span><span class="number">100</span><span class="special">));</span>
-</pre>
-<div class="variablelist">
-<p class="title"><b></b></p>
-<dl class="variablelist">
-<dt><span class="term">Effects:</span></dt>
-<dd><p>
-                    Constructs a scheduled_executor.
-                  </p></dd>
-<dt><span class="term">Throws:</span></dt>
-<dd><p>
-                    Nothing.
-                  </p></dd>
-</dl>
-</div>
-</div>
-<div class="section">
-<div class="titlepage"><div><div><h6 class="title">
-<a name="thread.synchronization.executors.ref.scheduled_executor.destructor"></a><a class="link" href="synchronization.html#thread.synchronization.executors.ref.scheduled_executor.destructor" title="Destructor ~scheduled_executor()">Destructor
-            <code class="computeroutput"><span class="special">~</span><span class="identifier">scheduled_executor</span><span class="special">()</span></code></a>
-</h6></div></div></div>
-<pre class="programlisting"><span class="special">~</span><span class="identifier">scheduled_executor</span><span class="special">();</span>
-</pre>
-<div class="variablelist">
-<p class="title"><b></b></p>
-<dl class="variablelist">
-<dt><span class="term">Effects:</span></dt>
-<dd><p>
-                    Destroys the executor_adaptor.
-                  </p></dd>
-<dt><span class="term">Synchronization:</span></dt>
-<dd><p>
-                    The completion of all the closures happen before the completion
-                    of the executor destructor.
-                  </p></dd>
-</dl>
-</div>
-</div>
-<div class="section">
-<div class="titlepage"><div><div><h6 class="title">
-<a name="thread.synchronization.executors.ref.scheduled_executor.underlying_executor"></a><a class="link" href="synchronization.html#thread.synchronization.executors.ref.scheduled_executor.underlying_executor" title="Function member underlying_executor()">Function
-            member <code class="computeroutput"><span class="identifier">underlying_executor</span><span class="special">()</span></code></a>
-</h6></div></div></div>
-<pre class="programlisting"><span class="identifier">Executor</span><span class="special">&amp;</span> <span class="identifier">underlying_executor</span><span class="special">();</span>
-</pre>
-<div class="variablelist">
-<p class="title"><b></b></p>
-<dl class="variablelist">
-<dt><span class="term">Return:</span></dt>
-<dd><p>
-                    The underlying executor instance.
-                  </p></dd>
-<dt><span class="term">Throws:</span></dt>
-<dd><p>
-                    Nothing.
-                  </p></dd>
-</dl>
-</div>
-</div>
-</div>
-<p>
-          ]
-        </p>
-<div class="section">
-<div class="titlepage"><div><div><h5 class="title">
-<a name="thread.synchronization.executors.ref.scheduled_executor0"></a><a class="link" href="synchronization.html#thread.synchronization.executors.ref.scheduled_executor0" title="Template Class serial_executor">Template
+<a name="thread.synchronization.executors.ref.scheduled_executor"></a><a class="link" href="synchronization.html#thread.synchronization.executors.ref.scheduled_executor" title="Template Class serial_executor">Template
           Class <code class="computeroutput"><span class="identifier">serial_executor</span></code></a>
 </h5></div></div></div>
 <p>
@@ -10276,7 +10144,7 @@
 </pre>
 <div class="section">
 <div class="titlepage"><div><div><h6 class="title">
-<a name="thread.synchronization.executors.ref.scheduled_executor.constructor0"></a><a class="link" href="synchronization.html#thread.synchronization.executors.ref.scheduled_executor.constructor0" title="Constructor serial_executor(Executor&amp;, chrono::duration&lt;Rep, Period&gt;)">Constructor
+<a name="thread.synchronization.executors.ref.scheduled_executor.constructor"></a><a class="link" href="synchronization.html#thread.synchronization.executors.ref.scheduled_executor.constructor" title="Constructor serial_executor(Executor&amp;, chrono::duration&lt;Rep, Period&gt;)">Constructor
             <code class="computeroutput"><span class="identifier">serial_executor</span><span class="special">(</span><span class="identifier">Executor</span><span class="special">&amp;,</span>
             <span class="identifier">chrono</span><span class="special">::</span><span class="identifier">duration</span><span class="special">&lt;</span><span class="identifier">Rep</span><span class="special">,</span> <span class="identifier">Period</span><span class="special">&gt;)</span></code></a>
 </h6></div></div></div>
@@ -10298,7 +10166,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h6 class="title">
-<a name="thread.synchronization.executors.ref.scheduled_executor.destructor0"></a><a class="link" href="synchronization.html#thread.synchronization.executors.ref.scheduled_executor.destructor0" title="Destructor ~serial_executor()">Destructor
+<a name="thread.synchronization.executors.ref.scheduled_executor.destructor"></a><a class="link" href="synchronization.html#thread.synchronization.executors.ref.scheduled_executor.destructor" title="Destructor ~serial_executor()">Destructor
             <code class="computeroutput"><span class="special">~</span><span class="identifier">serial_executor</span><span class="special">()</span></code></a>
 </h6></div></div></div>
 <pre class="programlisting"><span class="special">~</span><span class="identifier">serial_executor</span><span class="special">();</span>
@@ -10320,7 +10188,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h6 class="title">
-<a name="thread.synchronization.executors.ref.scheduled_executor.underlying_executor0"></a><a class="link" href="synchronization.html#thread.synchronization.executors.ref.scheduled_executor.underlying_executor0" title="Function member underlying_executor()">Function
+<a name="thread.synchronization.executors.ref.scheduled_executor.underlying_executor"></a><a class="link" href="synchronization.html#thread.synchronization.executors.ref.scheduled_executor.underlying_executor" title="Function member underlying_executor()">Function
             member <code class="computeroutput"><span class="identifier">underlying_executor</span><span class="special">()</span></code></a>
 </h6></div></div></div>
 <pre class="programlisting"><span class="identifier">Executor</span><span class="special">&amp;</span> <span class="identifier">underlying_executor</span><span class="special">();</span>

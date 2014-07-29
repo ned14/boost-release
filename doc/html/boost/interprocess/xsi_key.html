@@ -35,36 +35,36 @@
 <span class="keyword">class</span> <a class="link" href="xsi_key.html" title="Class xsi_key">xsi_key</a> <span class="special">{</span>
 <span class="keyword">public</span><span class="special">:</span>
   <span class="comment">// <a class="link" href="xsi_key.html#boost.interprocess.xsi_keyconstruct-copy-destruct">construct/copy/destruct</a></span>
-  <a class="link" href="xsi_key.html#idp65210432-bb"><span class="identifier">xsi_key</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
-  <a class="link" href="xsi_key.html#idp65211904-bb"><span class="identifier">xsi_key</span></a><span class="special">(</span><span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span><span class="special">,</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">uint8_t</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="xsi_key.html#idp51368416-bb"><span class="identifier">xsi_key</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="xsi_key.html#idp51369888-bb"><span class="identifier">xsi_key</span></a><span class="special">(</span><span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span><span class="special">,</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">uint8_t</span><span class="special">)</span><span class="special">;</span>
 
-  <span class="comment">// <a class="link" href="xsi_key.html#idp65208288-bb">public member functions</a></span>
-  <span class="identifier">key_t</span> <a class="link" href="xsi_key.html#idp65208848-bb"><span class="identifier">get_key</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="comment">// <a class="link" href="xsi_key.html#idp51366272-bb">public member functions</a></span>
+  <span class="identifier">key_t</span> <a class="link" href="xsi_key.html#idp51366832-bb"><span class="identifier">get_key</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
 <span class="special">}</span><span class="special">;</span></pre></div>
 <div class="refsect1">
-<a name="idp234868512"></a><h2>Description</h2>
+<a name="idp257484592"></a><h2>Description</h2>
 <p>A class that wraps XSI (System V) key_t type. This type calculates key_t from path and id using ftok or sets key to IPC_PRIVATE using the default constructor. </p>
 <div class="refsect2">
-<a name="idp234869360"></a><h3>
+<a name="idp257485440"></a><h3>
 <a name="boost.interprocess.xsi_keyconstruct-copy-destruct"></a><code class="computeroutput">xsi_key</code> 
         public
        construct/copy/destruct</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
 <li class="listitem">
-<pre class="literallayout"><a name="idp65210432-bb"></a><span class="identifier">xsi_key</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><a name="idp51368416-bb"></a><span class="identifier">xsi_key</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
 <p>Default constructor. Represents a private <code class="computeroutput"><a class="link" href="xsi_key.html" title="Class xsi_key">xsi_key</a></code>. </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><a name="idp65211904-bb"></a><span class="identifier">xsi_key</span><span class="special">(</span><span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span> path<span class="special">,</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">uint8_t</span> id<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><a name="idp51369888-bb"></a><span class="identifier">xsi_key</span><span class="special">(</span><span class="keyword">const</span> <span class="keyword">char</span> <span class="special">*</span> path<span class="special">,</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">uint8_t</span> id<span class="special">)</span><span class="special">;</span></pre>
 <p>Creates a new XSI shared memory with a key obtained from a call to ftok (with path "path" and id "id"), of size "size" and permissions "perm". If the shared memory previously exists, throws an error. </p>
 </li>
 </ol></div>
 </div>
 <div class="refsect2">
-<a name="idp234885456"></a><h3>
-<a name="idp65208288-bb"></a><code class="computeroutput">xsi_key</code> public member functions</h3>
+<a name="idp257501392"></a><h3>
+<a name="idp51366272-bb"></a><code class="computeroutput">xsi_key</code> public member functions</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
-<pre class="literallayout"><span class="identifier">key_t</span> <a name="idp65208848-bb"></a><span class="identifier">get_key</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>Returns the internal key_t value. </li></ol></div>
+<pre class="literallayout"><span class="identifier">key_t</span> <a name="idp51366832-bb"></a><span class="identifier">get_key</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>Returns the internal key_t value. </li></ol></div>
 </div>
 </div>
 </div>

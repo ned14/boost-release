@@ -485,6 +485,31 @@
 <li class="listitem">
           Avoid exposing some detail functions via. ADL on the iterators.
         </li>
+<li class="listitem">
+          Follow the standard by only using the allocators' construct and destroy
+          methods to construct and destroy stored elements. Don't use them for internal
+          data like pointers.
+        </li>
+</ul></div>
+<h3>
+<a name="unordered.changes.h19"></a>
+      <span class="phrase"><a name="unordered.changes.boost_1_56_0"></a></span><a class="link" href="changes.html#unordered.changes.boost_1_56_0">Boost
+      1.56.0</a>
+    </h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          Fix some shadowed variable warnings (<a href="https://svn.boost.org/trac/boost/ticket/9377" target="_top">#9377</a>).
+        </li>
+<li class="listitem">
+          Fix allocator use in documentation (<a href="https://svn.boost.org/trac/boost/ticket/9719" target="_top">#9719</a>).
+        </li>
+<li class="listitem">
+          Always use prime number of buckets for integers. Fixes performance regression
+          when inserting consecutive integers, although makes other uses slower (<a href="https://svn.boost.org/trac/boost/ticket/9282" target="_top">#9282</a>).
+        </li>
+<li class="listitem">
+          Only construct elements using allocators, as specified in C++11 standard.
+        </li>
 </ul></div>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

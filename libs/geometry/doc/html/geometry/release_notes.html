@@ -47,40 +47,112 @@
           New algorithm point_on_surface, generating a point lying on the surface
           (interior) of the polygon
         </li>
+<li class="listitem">
+          New algorithm is_simple, returning true if a geometry is simple according
+          to the OGC standard
+        </li>
+<li class="listitem">
+          New algorithm is_valid, returning true if a geometry is valid according
+          to the OGC standard
+        </li>
+<li class="listitem">
+          New algorithm crosses for checking this spatial relation according to the
+          OGC standard
+        </li>
+<li class="listitem">
+          The set operation algorithms (difference, intersection, sym_difference
+          and union) now support as input pairs of pointlike or linear geometries
+        </li>
+<li class="listitem">
+          The distance and comparable_distance algorithms now support all pairs of
+          geometry combinations
+        </li>
+<li class="listitem">
+          The spatial relations which didn't support it (covered_by, touches, within,
+          etc.) now support as input linear and/or areal geometries
+        </li>
+<li class="listitem">
+          The support for boost::variants as input geometries in various algorithms
+        </li>
+<li class="listitem">
+          The rtree support for indexing segments
+        </li>
+<li class="listitem">
+          The rtree nearest() predicate support for arbitrary geometries
+        </li>
 </ul></div>
+<p>
+      <span class="bold"><strong>Improvements</strong></span>
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+          The rtree pack-creation algorithm optimization (thanks to Lu Wang)
+        </li></ul></div>
 <p>
       <span class="bold"><strong>Solved tickets</strong></span>
     </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
-<li class="listitem">
-          <a href="https://svn.boost.org/trac/boost/ticket/9245" target="_top">9245</a>
-          Check for process errors in make_qbk.py
-        </li>
-<li class="listitem">
-          <a href="https://svn.boost.org/trac/boost/ticket/9081" target="_top">9081</a>
-          Booleans create self-intersecting polygons from non-self-intersecting polygons
-        </li>
 <li class="listitem">
           <a href="https://svn.boost.org/trac/boost/ticket/8310" target="_top">8310</a>
           Wrong results with overlapping polygons (fixed using point_on_surface for
           disjoint)
         </li>
 <li class="listitem">
-          <a href="https://svn.boost.org/trac/boost/ticket/9871" target="_top">9871</a>
-          Remove spike in polygon with only a spike
+          <a href="https://svn.boost.org/trac/boost/ticket/9081" target="_top">9081</a>
+          Booleans create self-intersecting polygons from non-self-intersecting polygons
+        </li>
+<li class="listitem">
+          <a href="https://svn.boost.org/trac/boost/ticket/9245" target="_top">9245</a>
+          Check for process errors in make_qbk.py
         </li>
 <li class="listitem">
           <a href="https://svn.boost.org/trac/boost/ticket/9563" target="_top">9563</a>
           (Sym)difference not successful, fixed by rescaling to robust type
         </li>
+<li class="listitem">
+          <a href="https://svn.boost.org/trac/boost/ticket/9628" target="_top">9628</a>
+          Wrong result of within() due to the winding strategy not working correctly
+          for nearly-horizontal segments
+        </li>
+<li class="listitem">
+          <a href="https://svn.boost.org/trac/boost/ticket/9871" target="_top">9871</a>
+          Remove spike in polygon with only a spike
+        </li>
+<li class="listitem">
+          <a href="https://svn.boost.org/trac/boost/ticket/9947" target="_top">9947</a>
+          Missing info about WKT in documentation
+        </li>
+<li class="listitem">
+          <a href="https://svn.boost.org/trac/boost/ticket/10019" target="_top">10019</a>
+          Difference of Linestring and Box returns their intersection
+        </li>
+<li class="listitem">
+          <a href="https://svn.boost.org/trac/boost/ticket/10077" target="_top">10077</a>
+          Wrong types in concept checks in boost/geometry/arithmetic/arithmetic.hpp
+        </li>
 </ul></div>
 <p>
       <span class="bold"><strong>Bugfixes</strong></span>
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
           intersects(polygon) could return a self-intersection-point for its closing
           point, fixed
-        </li></ul></div>
+        </li>
+<li class="listitem">
+          equals() could return invalid results for non-simple linear geometries
+          according to the OGC standard, fixed
+        </li>
+<li class="listitem">
+          touches() didn't work properly for CCW areal geomtries, fixed
+        </li>
+<li class="listitem">
+          rtree nearest queries returned wrong elements for non-cartesian coordinate
+          systems, fixed
+        </li>
+<li class="listitem">
+          rtree crashed in some cases when used with Interprocess allocator, fixed
+        </li>
+</ul></div>
 <h4>
 <a name="geometry.release_notes.h1"></a>
       <span class="phrase"><a name="geometry.release_notes.boost_1_55"></a></span><a class="link" href="release_notes.html#geometry.release_notes.boost_1_55">Boost

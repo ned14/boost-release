@@ -38,6 +38,8 @@
 <dt><span class="section"><a href="Cpp11_conformance.html#container.Cpp11_conformance.vector_exception_guarantees"><code class="computeroutput"><span class="identifier">vector</span></code> vs. <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span></code>
       exception guarantees</a></span></dt>
 <dt><span class="section"><a href="Cpp11_conformance.html#container.Cpp11_conformance.Vector_bool"><code class="computeroutput"><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">bool</span><span class="special">&gt;</span></code></a></span></dt>
+<dt><span class="section"><a href="Cpp11_conformance.html#container.Cpp11_conformance.non_standard_memset_initialization">Non-standard
+      value initialization using <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">memset</span></code></a></span></dt>
 </dl></div>
 <p>
       <span class="bold"><strong>Boost.Container</strong></span> aims for full C++11 conformance
@@ -129,8 +131,8 @@
         <span class="bold"><strong>Boost.Container</strong></span> implements its own <code class="computeroutput"><span class="identifier">scoped_allocator_adaptor</span></code> class and <span class="bold"><strong>backports this feature also to C++03 compilers</strong></span>. Due
         to C++03 limitations, in those compilers the allocator propagation implemented
         by <code class="computeroutput"><span class="identifier">scoped_allocator_adaptor</span><span class="special">::</span><span class="identifier">construct</span></code>
-        functions will be based on traits (<code class="computeroutput"><a class="link" href="../boost/container/constructible__idp37473648.html" title="Struct template constructible_with_allocator_suffix">constructible_with_allocator_suffix</a></code>
-        and <code class="computeroutput"><a class="link" href="../boost/container/constructible__idp37482448.html" title="Struct template constructible_with_allocator_prefix">constructible_with_allocator_prefix</a></code>)
+        functions will be based on traits (<code class="computeroutput"><a class="link" href="../boost/container/constructible__idp31645472.html" title="Struct template constructible_with_allocator_suffix">constructible_with_allocator_suffix</a></code>
+        and <code class="computeroutput"><a class="link" href="../boost/container/constructible__idp31654272.html" title="Struct template constructible_with_allocator_prefix">constructible_with_allocator_prefix</a></code>)
         proposed in <a href="http://www.open-std.org/jtc1/sc22/WG21/docs/papers/2008/n2554.pdf" target="_top">N2554:
         The Scoped Allocator Model (Rev 2) proposal</a>. In conforming C++11
         compilers or compilers supporting SFINAE expressions (when <code class="computeroutput"><span class="identifier">BOOST_NO_SFINAE_EXPR</span></code> is NOT defined), traits
@@ -262,6 +264,47 @@
         references and works as a fully compliant container. If you need a memory
         optimized version of <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">container</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">bool</span><span class="special">&gt;</span></code>,
         please use <a href="http://www.boost.org/libs/dynamic_bitset/" target="_top">Boost.DynamicBitset</a>.
+      </p>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="container.Cpp11_conformance.non_standard_memset_initialization"></a><a class="link" href="Cpp11_conformance.html#container.Cpp11_conformance.non_standard_memset_initialization" title="Non-standard value initialization using std::memset">Non-standard
+      value initialization using <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">memset</span></code></a>
+</h3></div></div></div>
+<p>
+        <span class="bold"><strong>Boost.Container</strong></span> uses <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">memset</span></code>
+        with a zero value to initialize some types as in most platforms this initialization
+        yields to the desired value initialization with improved performance.
+      </p>
+<p>
+        Following the C11 standard, <span class="bold"><strong>Boost.Container</strong></span>
+        assumes that <span class="emphasis"><em>for any integer type, the object representation where
+        all the bits are zero shall be a representation of the value zero in that
+        type</em></span>. Since <code class="computeroutput"><span class="identifier">_Bool</span></code>/<code class="computeroutput"><span class="keyword">wchar_t</span></code>/<code class="computeroutput"><span class="keyword">char16_t</span></code>/<code class="computeroutput"><span class="keyword">char32_t</span></code> are also integer types in C, it considers
+        all C++ integral types as initializable via <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">memset</span></code>.
+      </p>
+<p>
+        By default, <span class="bold"><strong>Boost.Container</strong></span> also considers
+        floating point types to be initializable using <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">memset</span></code>.
+        Most platforms are compatible with this initialization, but in case this
+        initialization is not desirable the user can <code class="computeroutput"><span class="preprocessor">#define</span>
+        <span class="identifier">BOOST_CONTAINER_MEMZEROED_FLOATING_POINT_IS_NOT_ZERO</span></code>
+        before including library headers.
+      </p>
+<p>
+        By default, it also considers pointer types (pointer and pointer to function
+        types, excluding member object and member function pointers) to be initializable
+        using <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">memset</span></code>. Most platforms are compatible with
+        this initialization, but in case this initialization is not desired the user
+        can <code class="computeroutput"><span class="preprocessor">#define</span> <span class="identifier">BOOST_CONTAINER_MEMZEROED_POINTER_IS_NOT_ZERO</span></code>
+        before including library headers.
+      </p>
+<p>
+        If neither <code class="computeroutput"><span class="identifier">BOOST_CONTAINER_MEMZEROED_FLOATING_POINT_IS_NOT_ZERO</span></code>
+        nor <code class="computeroutput"><span class="identifier">BOOST_CONTAINER_MEMZEROED_POINTER_IS_NOT_ZERO</span></code>
+        is defined <span class="bold"><strong>Boost.Container</strong></span> also considers
+        POD types to be value initializable via <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">memset</span></code>
+        with value zero.
       </p>
 </div>
 </div>

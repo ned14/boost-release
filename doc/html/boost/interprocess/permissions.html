@@ -35,52 +35,52 @@
 <span class="keyword">class</span> <a class="link" href="permissions.html" title="Class permissions">permissions</a> <span class="special">{</span>
 <span class="keyword">public</span><span class="special">:</span>
   <span class="comment">// <a class="link" href="permissions.html#boost.interprocess.permissionsconstruct-copy-destruct">construct/copy/destruct</a></span>
-  <a class="link" href="permissions.html#idp64045808-bb"><span class="identifier">permissions</span></a><span class="special">(</span><span class="identifier">os_permissions_type</span><span class="special">)</span><span class="special">;</span>
-  <a class="link" href="permissions.html#idp64047264-bb"><span class="identifier">permissions</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="permissions.html#idp50203792-bb"><span class="identifier">permissions</span></a><span class="special">(</span><span class="identifier">os_permissions_type</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="permissions.html#idp50205248-bb"><span class="identifier">permissions</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
 
-  <span class="comment">// <a class="link" href="permissions.html#idp64038848-bb">public member functions</a></span>
-  <span class="keyword">void</span> <a class="link" href="permissions.html#idp64039408-bb"><span class="identifier">set_default</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">void</span> <a class="link" href="permissions.html#idp64040752-bb"><span class="identifier">set_unrestricted</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">void</span> <a class="link" href="permissions.html#idp64042080-bb"><span class="identifier">set_permissions</span></a><span class="special">(</span><span class="identifier">os_permissions_type</span><span class="special">)</span><span class="special">;</span>
-  <span class="identifier">os_permissions_type</span> <a class="link" href="permissions.html#idp64044080-bb"><span class="identifier">get_permissions</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="comment">// <a class="link" href="permissions.html#idp50196832-bb">public member functions</a></span>
+  <span class="keyword">void</span> <a class="link" href="permissions.html#idp50197392-bb"><span class="identifier">set_default</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">void</span> <a class="link" href="permissions.html#idp50198736-bb"><span class="identifier">set_unrestricted</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">void</span> <a class="link" href="permissions.html#idp50200064-bb"><span class="identifier">set_permissions</span></a><span class="special">(</span><span class="identifier">os_permissions_type</span><span class="special">)</span><span class="special">;</span>
+  <span class="identifier">os_permissions_type</span> <a class="link" href="permissions.html#idp50202064-bb"><span class="identifier">get_permissions</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
 <span class="special">}</span><span class="special">;</span></pre></div>
 <div class="refsect1">
-<a name="idp228668560"></a><h2>Description</h2>
+<a name="idp251180192"></a><h2>Description</h2>
 <p>The permissions class represents permissions to be set to shared memory or files, that can be constructed form usual permission representations: a SECURITY_ATTRIBUTES pointer in windows or ORed rwx chmod integer in UNIX. </p>
 <div class="refsect2">
-<a name="idp228669440"></a><h3>
+<a name="idp251181104"></a><h3>
 <a name="boost.interprocess.permissionsconstruct-copy-destruct"></a><code class="computeroutput">permissions</code> 
         public
        construct/copy/destruct</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
 <li class="listitem">
-<pre class="literallayout"><a name="idp64045808-bb"></a><span class="identifier">permissions</span><span class="special">(</span><span class="identifier">os_permissions_type</span> type<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><a name="idp50203792-bb"></a><span class="identifier">permissions</span><span class="special">(</span><span class="identifier">os_permissions_type</span> type<span class="special">)</span><span class="special">;</span></pre>
 <p>Constructs a permissions object from a user provided os-dependent permissions. </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><a name="idp64047264-bb"></a><span class="identifier">permissions</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><a name="idp50205248-bb"></a><span class="identifier">permissions</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
 <p>Constructs a default permissions object: A null security attributes pointer for windows or 0644 for UNIX. </p>
 </li>
 </ol></div>
 </div>
 <div class="refsect2">
-<a name="idp228679088"></a><h3>
-<a name="idp64038848-bb"></a><code class="computeroutput">permissions</code> public member functions</h3>
+<a name="idp251192000"></a><h3>
+<a name="idp50196832-bb"></a><code class="computeroutput">permissions</code> public member functions</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">void</span> <a name="idp64039408-bb"></a><span class="identifier">set_default</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">void</span> <a name="idp50197392-bb"></a><span class="identifier">set_default</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
 <p>Sets permissions to default values: A null security attributes pointer for windows or 0644 for UNIX. </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">void</span> <a name="idp64040752-bb"></a><span class="identifier">set_unrestricted</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">void</span> <a name="idp50198736-bb"></a><span class="identifier">set_unrestricted</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
 <p>Sets permissions to unrestricted access: A null DACL for windows or 0666 for UNIX. </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">void</span> <a name="idp64042080-bb"></a><span class="identifier">set_permissions</span><span class="special">(</span><span class="identifier">os_permissions_type</span> perm<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">void</span> <a name="idp50200064-bb"></a><span class="identifier">set_permissions</span><span class="special">(</span><span class="identifier">os_permissions_type</span> perm<span class="special">)</span><span class="special">;</span></pre>
 <p>Sets permissions from a user provided os-dependent permissions. </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="identifier">os_permissions_type</span> <a name="idp64044080-bb"></a><span class="identifier">get_permissions</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="identifier">os_permissions_type</span> <a name="idp50202064-bb"></a><span class="identifier">get_permissions</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>
 <p>Returns stored os-dependent permissions </p>
 </li>
 </ol></div>

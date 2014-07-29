@@ -27,7 +27,7 @@
 <a name="geometry.reference.io.wkt.read_wkt"></a><a class="link" href="read_wkt.html" title="read_wkt">read_wkt</a>
 </h5></div></div></div>
 <p>
-            <a class="indexterm" name="idp122048880"></a>
+            <a class="indexterm" name="idp116959088"></a>
 Parses OGC Well-Known Text (WKT (Well-Known Text)) into a geometry (any
             geometry)
           </p>
@@ -123,37 +123,19 @@ Parses OGC Well-Known Text (WKT (Well-Known Text)) into a geometry (any
             <span class="phrase"><a name="geometry.reference.io.wkt.read_wkt.header"></a></span><a class="link" href="read_wkt.html#geometry.reference.io.wkt.read_wkt.header">Header</a>
           </h6>
 <p>
+            Either
+          </p>
+<p>
+            <code class="computeroutput"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">geometry</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>
+          </p>
+<p>
+            Or
+          </p>
+<p>
             <code class="computeroutput"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">geometry</span><span class="special">/</span><span class="identifier">io</span><span class="special">/</span><span class="identifier">wkt</span><span class="special">/</span><span class="identifier">read</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>
           </p>
 <h6>
 <a name="geometry.reference.io.wkt.read_wkt.h3"></a>
-            <span class="phrase"><a name="geometry.reference.io.wkt.read_wkt.the_wkt_format"></a></span><a class="link" href="read_wkt.html#geometry.reference.io.wkt.read_wkt.the_wkt_format">The WKT Format</a>
-          </h6>
-<p>
-            WKT is a general markup format in ASCII. It is described in detail on
-            <a href="http://en.wikipedia.org/wiki/Well-known_text" target="_top">Wikipedia</a>
-          </p>
-<p>
-            Boost Geometry supports the common formats (POINT, LINESTRING, POLYGON,
-            MULTIPOINT, MULTILINESTRING, MULTIPOLYGON). Because Boost.Geometry also
-            supports Box and Segment geometries, which are not standard OGC geometries,
-            there are some extensions:
-          </p>
-<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
-<li class="listitem">
-                a Box can be read from WKT by specifying either a polygon (with 4
-                points) or a specific BOX string (non OGC)
-              </li>
-<li class="listitem">
-                a Segment can be read from WKT by specifying either a linestring
-                (with 2 points) or a specific SEGMENT string (non OGC)
-              </li>
-<li class="listitem">
-                a Ring can be read from WKT by specifying a polygon (with no holes)
-              </li>
-</ul></div>
-<h6>
-<a name="geometry.reference.io.wkt.read_wkt.h4"></a>
             <span class="phrase"><a name="geometry.reference.io.wkt.read_wkt.conformance"></a></span><a class="link" href="read_wkt.html#geometry.reference.io.wkt.read_wkt.conformance">Conformance</a>
           </h6>
 <p>
@@ -164,7 +146,7 @@ Parses OGC Well-Known Text (WKT (Well-Known Text)) into a geometry (any
             used text format.
           </p>
 <h6>
-<a name="geometry.reference.io.wkt.read_wkt.h5"></a>
+<a name="geometry.reference.io.wkt.read_wkt.h4"></a>
             <span class="phrase"><a name="geometry.reference.io.wkt.read_wkt.example"></a></span><a class="link" href="read_wkt.html#geometry.reference.io.wkt.read_wkt.example">Example</a>
           </h6>
 <p>
@@ -199,7 +181,7 @@ Parses OGC Well-Known Text (WKT (Well-Known Text)) into a geometry (any
 <p>
           </p>
 <h6>
-<a name="geometry.reference.io.wkt.read_wkt.h6"></a>
+<a name="geometry.reference.io.wkt.read_wkt.h5"></a>
             <span class="phrase"><a name="geometry.reference.io.wkt.read_wkt.see_also"></a></span><a class="link" href="read_wkt.html#geometry.reference.io.wkt.read_wkt.see_also">See
             also</a>
           </h6>

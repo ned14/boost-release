@@ -53,22 +53,22 @@
   <span class="special">}</span><span class="special">;</span>
 
   <span class="comment">// <a class="link" href="aligned_allocator.html#boost.alignment.aligned_allocatorconstruct-copy-destruct">construct/copy/destruct</a></span>
-  <a class="link" href="aligned_allocator.html#idp28604816-bb"><span class="identifier">aligned_allocator</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="aligned_allocator.html#idp38145968-bb"><span class="identifier">aligned_allocator</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
   <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> 
-    <a class="link" href="aligned_allocator.html#idp28605104-bb"><span class="identifier">aligned_allocator</span></a><span class="special">(</span><span class="keyword">const</span> <a class="link" href="aligned_allocator.html" title="Class template aligned_allocator">aligned_allocator</a><span class="special">&lt;</span> <span class="identifier">U</span><span class="special">,</span> <span class="identifier">Alignment</span> <span class="special">&gt;</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
+    <a class="link" href="aligned_allocator.html#idp38146256-bb"><span class="identifier">aligned_allocator</span></a><span class="special">(</span><span class="keyword">const</span> <a class="link" href="aligned_allocator.html" title="Class template aligned_allocator">aligned_allocator</a><span class="special">&lt;</span> <span class="identifier">U</span><span class="special">,</span> <span class="identifier">Alignment</span> <span class="special">&gt;</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
 
-  <span class="comment">// <a class="link" href="aligned_allocator.html#idp28571168-bb">public member functions</a></span>
-  <span class="identifier">pointer</span> <a class="link" href="aligned_allocator.html#idp28571728-bb"><span class="identifier">address</span></a><span class="special">(</span><span class="identifier">reference</span><span class="special">)</span> <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span>
-  <span class="identifier">const_pointer</span> <a class="link" href="aligned_allocator.html#idp28574752-bb"><span class="identifier">address</span></a><span class="special">(</span><span class="identifier">const_reference</span><span class="special">)</span> <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span>
-  <span class="identifier">pointer</span> <a class="link" href="aligned_allocator.html#idp28577776-bb"><span class="identifier">allocate</span></a><span class="special">(</span><span class="identifier">size_type</span><span class="special">,</span> <span class="identifier">const_void_pointer</span> <span class="special">=</span> <span class="number">0</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">void</span> <a class="link" href="aligned_allocator.html#idp28584800-bb"><span class="identifier">deallocate</span></a><span class="special">(</span><span class="identifier">pointer</span><span class="special">,</span> <span class="identifier">size_type</span><span class="special">)</span><span class="special">;</span>
-  <span class="identifier">BOOST_CONSTEXPR</span> <span class="identifier">size_type</span> <a class="link" href="aligned_allocator.html#idp28590544-bb"><span class="identifier">max_size</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">,</span> <span class="keyword">class</span><span class="special">...</span> Args<span class="special">&gt;</span> <span class="keyword">void</span> <a class="link" href="aligned_allocator.html#idp28593408-bb"><span class="identifier">construct</span></a><span class="special">(</span><span class="identifier">U</span> <span class="special">*</span><span class="special">,</span> <span class="identifier">Args</span> <span class="special">&amp;&amp;</span><span class="special">...</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a class="link" href="aligned_allocator.html#idp28598160-bb"><span class="identifier">construct</span></a><span class="special">(</span><span class="identifier">U</span> <span class="special">*</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a class="link" href="aligned_allocator.html#idp28601408-bb"><span class="identifier">destroy</span></a><span class="special">(</span><span class="identifier">U</span> <span class="special">*</span><span class="special">)</span><span class="special">;</span>
+  <span class="comment">// <a class="link" href="aligned_allocator.html#idp38112368-bb">public member functions</a></span>
+  <span class="identifier">pointer</span> <a class="link" href="aligned_allocator.html#idp38112928-bb"><span class="identifier">address</span></a><span class="special">(</span><span class="identifier">reference</span><span class="special">)</span> <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span>
+  <span class="identifier">const_pointer</span> <a class="link" href="aligned_allocator.html#idp38115952-bb"><span class="identifier">address</span></a><span class="special">(</span><span class="identifier">const_reference</span><span class="special">)</span> <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span>
+  <span class="identifier">pointer</span> <a class="link" href="aligned_allocator.html#idp38118976-bb"><span class="identifier">allocate</span></a><span class="special">(</span><span class="identifier">size_type</span><span class="special">,</span> <span class="identifier">const_void_pointer</span> <span class="special">=</span> <span class="number">0</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">void</span> <a class="link" href="aligned_allocator.html#idp38126000-bb"><span class="identifier">deallocate</span></a><span class="special">(</span><span class="identifier">pointer</span><span class="special">,</span> <span class="identifier">size_type</span><span class="special">)</span><span class="special">;</span>
+  <span class="identifier">BOOST_CONSTEXPR</span> <span class="identifier">size_type</span> <a class="link" href="aligned_allocator.html#idp38131696-bb"><span class="identifier">max_size</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span>
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">,</span> <span class="keyword">class</span><span class="special">...</span> Args<span class="special">&gt;</span> <span class="keyword">void</span> <a class="link" href="aligned_allocator.html#idp38134560-bb"><span class="identifier">construct</span></a><span class="special">(</span><span class="identifier">U</span> <span class="special">*</span><span class="special">,</span> <span class="identifier">Args</span> <span class="special">&amp;&amp;</span><span class="special">...</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a class="link" href="aligned_allocator.html#idp38139312-bb"><span class="identifier">construct</span></a><span class="special">(</span><span class="identifier">U</span> <span class="special">*</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a class="link" href="aligned_allocator.html#idp38142560-bb"><span class="identifier">destroy</span></a><span class="special">(</span><span class="identifier">U</span> <span class="special">*</span><span class="special">)</span><span class="special">;</span>
 <span class="special">}</span><span class="special">;</span></pre></div>
 <div class="refsect1">
-<a name="idp102934096"></a><h2>Description</h2>
+<a name="idp125502480"></a><h2>Description</h2>
 <p>Class template <a class="link" href="aligned_allocator.html" title="Class template aligned_allocator">aligned_allocator</a>.</p>
 <p>
 </p>
@@ -85,7 +85,7 @@
 <p>
 </p>
 <div class="refsect2">
-<a name="idp102938096"></a><h3>Template Parameters</h3>
+<a name="idp125506480"></a><h3>Template Parameters</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
 <li class="listitem"><pre class="literallayout"><span class="keyword">typename</span> T</pre></li>
 <li class="listitem">
@@ -95,22 +95,22 @@
 </ol></div>
 </div>
 <div class="refsect2">
-<a name="idp102944032"></a><h3>
+<a name="idp125512416"></a><h3>
 <a name="boost.alignment.aligned_allocatorconstruct-copy-destruct"></a><code class="computeroutput">aligned_allocator</code> 
         public
        construct/copy/destruct</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
-<li class="listitem"><pre class="literallayout"><a name="idp28604816-bb"></a><span class="identifier">aligned_allocator</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><a name="idp38145968-bb"></a><span class="identifier">aligned_allocator</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre></li>
 <li class="listitem"><pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> 
-  <a name="idp28605104-bb"></a><span class="identifier">aligned_allocator</span><span class="special">(</span><span class="keyword">const</span> <a class="link" href="aligned_allocator.html" title="Class template aligned_allocator">aligned_allocator</a><span class="special">&lt;</span> <span class="identifier">U</span><span class="special">,</span> <span class="identifier">Alignment</span> <span class="special">&gt;</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span></pre></li>
+  <a name="idp38146256-bb"></a><span class="identifier">aligned_allocator</span><span class="special">(</span><span class="keyword">const</span> <a class="link" href="aligned_allocator.html" title="Class template aligned_allocator">aligned_allocator</a><span class="special">&lt;</span> <span class="identifier">U</span><span class="special">,</span> <span class="identifier">Alignment</span> <span class="special">&gt;</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span></pre></li>
 </ol></div>
 </div>
 <div class="refsect2">
-<a name="idp102961856"></a><h3>
-<a name="idp28571168-bb"></a><code class="computeroutput">aligned_allocator</code> public member functions</h3>
+<a name="idp125530288"></a><h3>
+<a name="idp38112368-bb"></a><code class="computeroutput">aligned_allocator</code> public member functions</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
 <li class="listitem">
-<pre class="literallayout"><span class="identifier">pointer</span> <a name="idp28571728-bb"></a><span class="identifier">address</span><span class="special">(</span><span class="identifier">reference</span> value<span class="special">)</span> <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="identifier">pointer</span> <a name="idp38112928-bb"></a><span class="identifier">address</span><span class="special">(</span><span class="identifier">reference</span> value<span class="special">)</span> <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span></pre>
 <p>
 </p>
 <div class="variablelist"><table border="0" class="variablelist compact">
@@ -125,7 +125,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="identifier">const_pointer</span> <a name="idp28574752-bb"></a><span class="identifier">address</span><span class="special">(</span><span class="identifier">const_reference</span> value<span class="special">)</span> <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="identifier">const_pointer</span> <a name="idp38115952-bb"></a><span class="identifier">address</span><span class="special">(</span><span class="identifier">const_reference</span> value<span class="special">)</span> <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span></pre>
 <p>
 </p>
 <div class="variablelist"><table border="0" class="variablelist compact">
@@ -140,7 +140,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="identifier">pointer</span> <a name="idp28577776-bb"></a><span class="identifier">allocate</span><span class="special">(</span><span class="identifier">size_type</span> size<span class="special">,</span> <span class="identifier">const_void_pointer</span> <span class="special">=</span> <span class="number">0</span><span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="identifier">pointer</span> <a name="idp38118976-bb"></a><span class="identifier">allocate</span><span class="special">(</span><span class="identifier">size_type</span> size<span class="special">,</span> <span class="identifier">const_void_pointer</span> <span class="special">=</span> <span class="number">0</span><span class="special">)</span><span class="special">;</span></pre>
 <p>
 </p>
 <p><span class="bold"><strong>Throw:</strong></span> Throws <code class="computeroutput">std::bad_alloc</code> if the storage cannot be obtained.</p>
@@ -159,7 +159,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">void</span> <a name="idp28584800-bb"></a><span class="identifier">deallocate</span><span class="special">(</span><span class="identifier">pointer</span> ptr<span class="special">,</span> <span class="identifier">size_type</span><span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">void</span> <a name="idp38126000-bb"></a><span class="identifier">deallocate</span><span class="special">(</span><span class="identifier">pointer</span> ptr<span class="special">,</span> <span class="identifier">size_type</span><span class="special">)</span><span class="special">;</span></pre>
 <p>Deallocates the storage referenced by <code class="computeroutput">ptr</code>.</p>
 <p>
 </p>
@@ -187,7 +187,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="identifier">BOOST_CONSTEXPR</span> <span class="identifier">size_type</span> <a name="idp28590544-bb"></a><span class="identifier">max_size</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="identifier">BOOST_CONSTEXPR</span> <span class="identifier">size_type</span> <a name="idp38131696-bb"></a><span class="identifier">max_size</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span></pre>
 <p>
 </p>
 <div class="variablelist"><table border="0" class="variablelist compact">
@@ -202,22 +202,22 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">,</span> <span class="keyword">class</span><span class="special">...</span> Args<span class="special">&gt;</span> <span class="keyword">void</span> <a name="idp28593408-bb"></a><span class="identifier">construct</span><span class="special">(</span><span class="identifier">U</span> <span class="special">*</span> ptr<span class="special">,</span> <span class="identifier">Args</span> <span class="special">&amp;&amp;</span><span class="special">...</span> args<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">,</span> <span class="keyword">class</span><span class="special">...</span> Args<span class="special">&gt;</span> <span class="keyword">void</span> <a name="idp38134560-bb"></a><span class="identifier">construct</span><span class="special">(</span><span class="identifier">U</span> <span class="special">*</span> ptr<span class="special">,</span> <span class="identifier">Args</span> <span class="special">&amp;&amp;</span><span class="special">...</span> args<span class="special">)</span><span class="special">;</span></pre>
 <p>Calls global <code class="computeroutput">new((void*)ptr) U(std::forward&lt;Args&gt;(args)...)</code>. </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a name="idp28598160-bb"></a><span class="identifier">construct</span><span class="special">(</span><span class="identifier">U</span> <span class="special">*</span> ptr<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a name="idp38139312-bb"></a><span class="identifier">construct</span><span class="special">(</span><span class="identifier">U</span> <span class="special">*</span> ptr<span class="special">)</span><span class="special">;</span></pre>
 <p>Calls global <code class="computeroutput">new((void*)ptr) U()</code>. </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a name="idp28601408-bb"></a><span class="identifier">destroy</span><span class="special">(</span><span class="identifier">U</span> <span class="special">*</span> ptr<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a name="idp38142560-bb"></a><span class="identifier">destroy</span><span class="special">(</span><span class="identifier">U</span> <span class="special">*</span> ptr<span class="special">)</span><span class="special">;</span></pre>
 <p>Calls <code class="computeroutput">ptr-&gt;~U()</code>. </p>
 </li>
 </ol></div>
 </div>
 <div class="refsect2">
-<a name="idp103067600"></a><h3>Specializations</h3>
-<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p><a class="link" href="aligned_alloca_idp28607648.html" title="Class template aligned_allocator&lt;void, Alignment&gt;">Class template aligned_allocator&lt;void, Alignment&gt;</a></p></li></ul></div>
+<a name="idp125635792"></a><h3>Specializations</h3>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p><a class="link" href="aligned_alloca_idp38148800.html" title="Class template aligned_allocator&lt;void, Alignment&gt;">Class template aligned_allocator&lt;void, Alignment&gt;</a></p></li></ul></div>
 </div>
 </div>
 </div>

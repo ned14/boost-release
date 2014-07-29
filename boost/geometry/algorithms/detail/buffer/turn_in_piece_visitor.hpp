@@ -11,6 +11,7 @@
 
 #include <boost/range.hpp>
 
+#include <boost/geometry/arithmetic/dot_product.hpp>
 #include <boost/geometry/algorithms/equals.hpp>
 #include <boost/geometry/algorithms/expand.hpp>
 #include <boost/geometry/algorithms/detail/disjoint/box_box.hpp>
@@ -44,10 +45,12 @@ struct turn_ovelaps_box
         return ! geometry::disjoint(box, turn.robust_point);
     }
 };
-template <typename Turns>
+
+template <typename Turns, typename Pieces>
 class turn_in_piece_visitor
 {
     Turns& m_turns; // because partition is currently operating on const input only
+    Pieces const& m_pieces; // to check for piece-type
 
     template <typename Point>
     static inline bool projection_on_segment(Point const& subject, Point const& p, Point const& q)
@@ -103,10 +106,12 @@ class turn_in_piece_visitor
         return false;
     }
 
+
 public:
 
-    inline turn_in_piece_visitor(Turns& turns)
+    inline turn_in_piece_visitor(Turns& turns, Pieces const& pieces)
         : m_turns(turns)
+        , m_pieces(pieces)
     {}
 
     template <typename Turn, typename Piece>
@@ -120,12 +125,15 @@ public:
             return;
         }
 
-        if (piece.type == strategy::buffer::buffered_flat_end)
+        if (piece.type == strategy::buffer::buffered_flat_end
+            || piece.type == strategy::buffer::buffered_concave)
         {
             // Turns cannot be inside a flat end (though they can be on border)
+            // Neither we need to check if they are inside concave helper pieces
             return;
         }
 
+        bool neighbour = false;
         for (int i = 0; i < 2; i++)
         {
             // Don't compare against one of the two source-pieces
@@ -133,23 +141,40 @@ public:
             {
                 return;
             }
+
+            typename boost::range_value<Pieces>::type const& pc
+                                = m_pieces[turn.operations[i].piece_index];
+            if (pc.left_index == piece.index
+                || pc.right_index == piece.index)
+            {
+                if (pc.type == strategy::buffer::buffered_flat_end)
+                {
+                    // If it is a flat end, don't compare against its neighbor:
+                    // it will always be located on one of the helper segments
+                    return;
+                }
+                neighbour = true;
+            }
         }
 
         int geometry_code = detail::within::point_in_geometry(turn.robust_point, piece.robust_ring);
+
         if (geometry_code == -1)
         {
             return;
         }
 
         Turn& mutable_turn = m_turns[turn.turn_index];
-        if (geometry_code == 0)
+        if (geometry_code == 0 && ! neighbour)
         {
+            // If it is on the border and they are neighbours, it should be
+            // on the offsetted ring
+
             if (! on_offsetted(turn.robust_point, piece))
             {
                 // It is on the border but not on the offsetted ring.
                 // Then it is somewhere on the helper-segments
                 // Classify it as inside
-                // TODO: for neighbouring flat ends this does not apply
                 geometry_code = 1;
                 mutable_turn.count_on_helper++;
             }
