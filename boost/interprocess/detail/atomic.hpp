@@ -15,6 +15,10 @@
 #ifndef BOOST_INTERPROCESS_DETAIL_ATOMIC_HPP
 #define BOOST_INTERPROCESS_DETAIL_ATOMIC_HPP
 
+#if defined(_MSC_VER)
+#  pragma once
+#endif
+
 #include <boost/interprocess/detail/config_begin.hpp>
 #include <boost/interprocess/detail/workaround.hpp>
 #include <boost/cstdint.hpp>
@@ -53,6 +57,9 @@ inline boost::uint32_t atomic_cas32
 
 #include <boost/interprocess/detail/win32_api.hpp>
 
+extern "C" void _ReadWriteBarrier(void);
+#pragma intrinsic(_ReadWriteBarrier)
+
 namespace boost{
 namespace interprocess{
 namespace ipcdetail{
@@ -71,7 +78,11 @@ inline boost::uint32_t atomic_inc32(volatile boost::uint32_t *mem)
 
 //! Atomically read an boost::uint32_t from memory
 inline boost::uint32_t atomic_read32(volatile boost::uint32_t *mem)
-{  return *mem;   }
+{
+    const boost::uint32_t val = *mem;
+    _ReadWriteBarrier();
+    return val;
+}
 
 //! Atomically set an boost::uint32_t in memory
 //! "mem": pointer to the object
@@ -157,13 +168,24 @@ inline boost::uint32_t atomic_dec32(volatile boost::uint32_t *mem)
 
 //! Atomically read an boost::uint32_t from memory
 inline boost::uint32_t atomic_read32(volatile boost::uint32_t *mem)
-{  return *mem;   }
+{
+   const boost::uint32_t val = *mem;
+   __asm__ __volatile__ ( "" ::: "memory" );
+   return val;
+}
 
 //! Atomically set an boost::uint32_t in memory
 //! "mem": pointer to the object
 //! "param": val value that the object will assume
 inline void atomic_write32(volatile boost::uint32_t *mem, boost::uint32_t val)
-{  *mem = val; }
+{
+   __asm__ __volatile__
+   (
+      "xchgl %0, %1"
+      : "+r" (val), "+m" (*mem)
+      :: "memory"
+   );
+}
 
 }  //namespace ipcdetail{
 }  //namespace interprocess{
@@ -232,7 +254,11 @@ inline boost::uint32_t atomic_dec32(volatile boost::uint32_t *mem)
 
 //! Atomically read an boost::uint32_t from memory
 inline boost::uint32_t atomic_read32(volatile boost::uint32_t *mem)
-{  return *mem;   }
+{
+   const boost::uint32_t val = *mem;
+   __asm__ __volatile__ ( "" ::: "memory" );
+   return val;
+}
 
 //! Atomically set an boost::uint32_t in memory
 //! "mem": pointer to the object
@@ -510,7 +536,7 @@ inline boost::uint32_t atomic_dec32(volatile boost::uint32_t *mem)
 
 //! Atomically read an boost::uint32_t from memory
 inline boost::uint32_t atomic_read32(volatile boost::uint32_t *mem)
-{  return *mem;   }
+{  boost::uint32_t old_val = *mem; __sync_synchronize(); return old_val;  }
 
 //! Compare an boost::uint32_t's value with "cmp".
 //! If they are the same swap the value with "with"
@@ -526,7 +552,7 @@ inline boost::uint32_t atomic_cas32
 //! "mem": pointer to the object
 //! "param": val value that the object will assume
 inline void atomic_write32(volatile boost::uint32_t *mem, boost::uint32_t val)
-{  *mem = val; }
+{  __sync_synchronize(); *mem = val;  }
 
 }  //namespace ipcdetail{
 }  //namespace interprocess{
