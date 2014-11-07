@@ -17,6 +17,7 @@
 
 #include <boost/core/scoped_enum.hpp>
 #include <stdexcept>
+#include <iostream>
 #include <boost/thread/exceptional_ptr.hpp>
 #include <boost/thread/detail/move.hpp>
 #include <boost/thread/detail/invoker.hpp>
@@ -231,8 +232,6 @@ namespace boost
             boost::condition_variable waiters;
             waiter_list external_waiters;
             boost::function<void()> callback;
-            // This declaration should be only included conditionally if interruptions are allowed, but is included to maintain the same layout.
-            bool thread_was_interrupted;
             // This declaration should be only included conditionally, but is included to maintain the same layout.
             continuation_ptr_type continuation_ptr;
 
@@ -246,7 +245,6 @@ namespace boost
                 is_deferred_(false),
                 policy_(launch::none),
                 is_constructed(false),
-                thread_was_interrupted(false),
                 continuation_ptr()
             {}
             virtual ~shared_state_base()
@@ -351,6 +349,7 @@ namespace boost
               {
                 is_deferred_=false;
                 execute(lk);
+
                 return true;
               }
               else
@@ -359,30 +358,18 @@ namespace boost
             void wait_internal(boost::unique_lock<boost::mutex> &lk, bool rethrow=true)
             {
               do_callback(lk);
-              //if (!done) // fixme why this doesn't work?
+              if (is_deferred_)
               {
-                if (is_deferred_)
-                {
-                  is_deferred_=false;
-                  execute(lk);
-                }
-                else
-                {
-                  while(!done)
-                  {
-                      waiters.wait(lk);
-                  }
-#if defined BOOST_THREAD_PROVIDES_INTERRUPTIONS
-                  if(rethrow && thread_was_interrupted)
-                  {
-                      throw boost::thread_interrupted();
-                  }
-#endif
-                  if(rethrow && exception)
-                  {
-                      boost::rethrow_exception(exception);
-                  }
-                }
+                is_deferred_=false;
+                execute(lk);
+              }
+              while(!done)
+              {
+                  waiters.wait(lk);
+              }
+              if(rethrow && exception)
+              {
+                  boost::rethrow_exception(exception);
               }
             }
 
@@ -448,18 +435,19 @@ namespace boost
             void mark_interrupted_finish()
             {
                 boost::unique_lock<boost::mutex> lock(this->mutex);
-                thread_was_interrupted=true;
+                exception = boost::copy_exception(boost::thread_interrupted());
                 mark_finished_internal(lock);
             }
 
             void set_interrupted_at_thread_exit()
             {
               unique_lock<boost::mutex> lk(this->mutex);
-              thread_was_interrupted=true;
               if (has_value(lk))
               {
                   throw_exception(promise_already_satisfied());
               }
+              exception = boost::copy_exception(boost::thread_interrupted());
+              this->is_constructed = true;
               detail::make_ready_at_thread_exit(shared_from_this());
             }
 #endif
@@ -479,39 +467,23 @@ namespace boost
             bool has_value() const
             {
                 boost::lock_guard<boost::mutex> lock(this->mutex);
-                return done && !(exception
-#if defined BOOST_THREAD_PROVIDES_INTERRUPTIONS
-                    || thread_was_interrupted
-#endif
-                );
+                return done && ! exception;
             }
 
             bool has_value(unique_lock<boost::mutex>& )  const
             {
-                return done && !(exception
-#if defined BOOST_THREAD_PROVIDES_INTERRUPTIONS
-                    || thread_was_interrupted
-#endif
-                );
+                return done && ! exception;
             }
 
             bool has_exception()  const
             {
                 boost::lock_guard<boost::mutex> lock(this->mutex);
-                return done && (exception
-#if defined BOOST_THREAD_PROVIDES_INTERRUPTIONS
-                    || thread_was_interrupted
-#endif
-                    );
+                return done && exception;
             }
 
             bool has_exception(unique_lock<boost::mutex>&) const
             {
-                return done && (exception
-#if defined BOOST_THREAD_PROVIDES_INTERRUPTIONS
-                    || thread_was_interrupted
-#endif
-                    );
+                return done && exception;
             }
 
             bool is_deferred(boost::lock_guard<boost::mutex>&)  const {
@@ -544,12 +516,6 @@ namespace boost
             exception_ptr get_exception_ptr(boost::unique_lock<boost::mutex>& lock)
             {
                 wait_internal(lock, false);
-#if defined BOOST_THREAD_PROVIDES_INTERRUPTIONS
-                if(thread_was_interrupted)
-                {
-                    return boost::copy_exception(boost::thread_interrupted());
-                }
-#endif
                 return exception;
             }
 
@@ -4998,6 +4964,23 @@ namespace detail
     }
   };
 
+
+  template <class Tuple, std::size_t i=csbl::tuple_size<Tuple>::value>
+  struct accumulate_run_if_is_deferred {
+    bool operator ()(Tuple& t)
+    {
+      return (! csbl::get<i-1>(t).run_if_is_deferred()) || accumulate_run_if_is_deferred<Tuple,i-1>()(t);
+    }
+  };
+  template <class Tuple>
+  struct accumulate_run_if_is_deferred<Tuple, 0> {
+    bool operator ()(Tuple& )
+    {
+      return false;
+    }
+  };
+
+
   template< typename Tuple, typename T0, typename ...T>
   struct future_when_all_tuple_shared_state: future_async_shared_state_base<Tuple>
   {
@@ -5030,9 +5013,7 @@ namespace detail
 
     bool run_deferred() {
 
-      bool res = true;
-      // todo bool res = accumulate(tup_, false, run_if_is_deferred());
-      return res;
+      return accumulate_run_if_is_deferred<Tuple>()(tup_);
     }
     void init() {
       if (! run_deferred())
@@ -5055,6 +5036,24 @@ namespace detail
     }
 
   };
+
+
+  template <class Tuple, std::size_t i=csbl::tuple_size<Tuple>::value>
+  struct apply_any_run_if_is_deferred_or_ready {
+    bool operator ()(Tuple& t)
+    {
+      if (csbl::get<i-1>(t).run_if_is_deferred_or_ready()) return true;
+      return apply_any_run_if_is_deferred_or_ready<Tuple,i-1>()(t);
+    }
+  };
+  template <class Tuple>
+  struct apply_any_run_if_is_deferred_or_ready<Tuple, 0> {
+    bool operator ()(Tuple& )
+    {
+      return false;
+    }
+  };
+
   template< typename Tuple, typename T0, typename ...T >
   struct future_when_any_tuple_shared_state: future_async_shared_state_base<Tuple>
   {
@@ -5085,10 +5084,7 @@ namespace detail
 #endif
     }
     bool run_deferred() {
-      //bool res = false;
-      bool res = csbl::get<0>(tup_).run_if_is_deferred_or_ready();
-      // todo bool res = apply_any(tup_, run_if_is_deferred_or_ready());
-      return res;
+      return apply_any_run_if_is_deferred_or_ready<Tuple>()(tup_);
     }
     void init() {
       if (run_deferred())
